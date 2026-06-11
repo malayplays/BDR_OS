@@ -37,6 +37,18 @@ from app.engine.types import (
 MIX_MIN = 0.15
 MIX_MAX = 0.60
 
+# Persona mix bounds: no single tier below 5% or above 70%
+PERSONA_MIX_MIN = 0.05
+PERSONA_MIX_MAX = 0.70
+
+# Default persona mix favoring VP+ per COMP_MODEL.md §5
+DEFAULT_PERSONA_MIX: dict[str, float] = {
+    PersonaTier.VP_LEVEL: 0.40,
+    PersonaTier.DIRECTOR: 0.30,
+    PersonaTier.MANAGER: 0.20,
+    PersonaTier.IC: 0.10,
+}
+
 
 def _business_days_between(start: date, end: date) -> list[date]:
     """Return list of business days in [start, end]."""
@@ -130,21 +142,66 @@ def _clamp_mix(mix: dict[str, float]) -> dict[str, float]:
     return clamped
 
 
-def _avg_pts_per_held(
+def validate_persona_mix(mix: dict[str, float]) -> dict[str, float]:
+    """Clamp persona mix to bounds and normalize to sum=1.0.
+
+    Uses iterative clamp-and-redistribute (same strategy as _clamp_mix)
+    to guarantee every tier stays within [PERSONA_MIX_MIN, PERSONA_MIX_MAX].
+    """
+    # First normalize to sum=1
+    total = sum(mix.values())
+    if total <= 0:
+        per = 1.0 / max(len(mix), 1)
+        clamped = {k: per for k in mix}
+    else:
+        clamped = {k: v / total for k, v in mix.items()}
+
+    locked: set[str] = set()
+    for _ in range(len(clamped) + 5):
+        newly_locked = False
+        for tier in clamped:
+            if tier in locked:
+                continue
+            if clamped[tier] < PERSONA_MIX_MIN:
+                clamped[tier] = PERSONA_MIX_MIN
+                locked.add(tier)
+                newly_locked = True
+            elif clamped[tier] > PERSONA_MIX_MAX:
+                clamped[tier] = PERSONA_MIX_MAX
+                locked.add(tier)
+                newly_locked = True
+        if not newly_locked:
+            break
+        locked_total = sum(clamped[t] for t in locked)
+        free = [t for t in clamped if t not in locked]
+        if not free:
+            break
+        remaining = 1.0 - locked_total
+        free_raw = {t: mix[t] for t in free}
+        free_raw_total = sum(free_raw.values())
+        if free_raw_total > 0:
+            for t in free:
+                clamped[t] = remaining * (free_raw[t] / free_raw_total)
+        else:
+            per = remaining / len(free)
+            for t in free:
+                clamped[t] = per
+    return clamped
+
+
+def avg_pts_per_held(
     persona_mix_target: dict[str, float] | None = None,
     ad_accept_rate: float = 0.90,
 ) -> float:
     """Expected points per held meeting given persona mix.
 
     Default mix if none provided: favor VP+ per COMP_MODEL.md §5.
+    Public API — used by cascade and test_cascade_persona_weighting.
     """
     if persona_mix_target is None:
-        persona_mix_target = {
-            PersonaTier.VP_LEVEL: 0.40,
-            PersonaTier.DIRECTOR: 0.30,
-            PersonaTier.MANAGER: 0.20,
-            PersonaTier.IC: 0.10,
-        }
+        persona_mix_target = dict(DEFAULT_PERSONA_MIX)
+    else:
+        persona_mix_target = validate_persona_mix(persona_mix_target)
     total = 0.0
     for tier, fraction in persona_mix_target.items():
         pts = PERSONA_POINTS.get(tier, 1.0)
@@ -170,7 +227,7 @@ def compute_plan(
     remaining_pts = max(goal.target_value - credited_pts - pending_pts, 0.0)
 
     ad_accept = get_blended_rate(rates, RateMetric.AD_ACCEPT_RATE, None)
-    avg_pts = _avg_pts_per_held(persona_mix_target, ad_accept)
+    avg_pts = avg_pts_per_held(persona_mix_target, ad_accept)
 
     rem_weeks = _remaining_weeks(goal.period_end, capacity, now)
 
