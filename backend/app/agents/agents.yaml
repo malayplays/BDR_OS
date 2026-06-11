@@ -1,0 +1,13 @@
+# Agent configuration — model selection and defaults
+# ANTHROPIC_API_KEY must be set in env.
+
+defaults:
+  model: claude-sonnet-4-20250514
+  max_tokens: 2048
+  temperature: 0.3
+
+agents:
+  research_brief:
+    model: claude-sonnet-4-20250514
+    max_tokens: 1024
+    temperature: 0.2
