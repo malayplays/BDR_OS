@@ -23,6 +23,7 @@ auto_approve_whitelist:
   - call_prep
   - pipeline_hygiene_autofix
   - reporting_personal_recap
+  - inbox_triage  # classification only; chained jobs carry their own gates
 
 # Data-hygiene auto-fix whitelist — only these actions can run without approval.
 # Anything customer-adjacent MUST go through the normal gated flow.
@@ -30,3 +31,14 @@ hygiene_autofix_whitelist:
   - close_stale_bdr_task       # close BDR-OS-created tasks that are stale
   - repair_eventlog_job_link   # fix missing EventLog↔Job attribution
   - mark_dead_sequence         # mark sequences with no reply after threshold
+
+# Compliance fast-path: unsubscribe -> immediate suppression-list write + kill all
+# sequences/jobs for that contact. NO approval needed — suppressive direction only.
+# This exception overrides the draft-only blanket rule because removing a contact
+# from all outreach is a compliance obligation (CAN-SPAM / GDPR), not a customer-facing
+# send. Suppression is always safe; the risk is in NOT honoring it fast enough.
+compliance_exceptions:
+  unsubscribe:
+    approval_required: false
+    action: suppress_contact
+    note: "Suppressive direction only — no approval needed (compliance override)"
