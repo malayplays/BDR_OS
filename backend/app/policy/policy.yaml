@@ -18,6 +18,7 @@ deliverability:
 
 auto_approve_whitelist:
   - crm_note_log
+  - crm_scribe_note
   - research_brief
   - call_prep
   - pipeline_hygiene_autofix
