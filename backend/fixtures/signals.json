@@ -1,0 +1,292 @@
+{
+  "signals": [
+    {
+      "kind": "dev_velocity_pain",
+      "account_domain": "company1.com",
+      "strength": 0.61,
+      "evidence": "Signal evidence for dev_velocity_pain at company1.com",
+      "detected_at": "2026-06-17T00:00:00"
+    },
+    {
+      "kind": "funding",
+      "account_domain": "company2.com",
+      "strength": 0.3,
+      "evidence": "Signal evidence for funding at company2.com",
+      "detected_at": "2026-06-30T00:00:00"
+    },
+    {
+      "kind": "dev_velocity_pain",
+      "account_domain": "company3.com",
+      "strength": 0.76,
+      "evidence": "Signal evidence for dev_velocity_pain at company3.com",
+      "detected_at": "2026-06-04T00:00:00"
+    },
+    {
+      "kind": "funding",
+      "account_domain": "company4.com",
+      "strength": 0.79,
+      "evidence": "Signal evidence for funding at company4.com",
+      "detected_at": "2026-06-18T00:00:00"
+    },
+    {
+      "kind": "eng_leadership_change",
+      "account_domain": "company5.com",
+      "strength": 0.73,
+      "evidence": "Signal evidence for eng_leadership_change at company5.com",
+      "detected_at": "2026-06-10T00:00:00"
+    },
+    {
+      "kind": "eng_leadership_change",
+      "account_domain": "company6.com",
+      "strength": 0.6,
+      "evidence": "Signal evidence for eng_leadership_change at company6.com",
+      "detected_at": "2026-06-19T00:00:00"
+    },
+    {
+      "kind": "funding",
+      "account_domain": "company7.com",
+      "strength": 0.86,
+      "evidence": "Signal evidence for funding at company7.com",
+      "detected_at": "2026-07-01T00:00:00"
+    },
+    {
+      "kind": "hiring_surge",
+      "account_domain": "company8.com",
+      "strength": 0.87,
+      "evidence": "Signal evidence for hiring_surge at company8.com",
+      "detected_at": "2026-06-25T00:00:00"
+    },
+    {
+      "kind": "hiring_surge",
+      "account_domain": "company9.com",
+      "strength": 0.47,
+      "evidence": "Signal evidence for hiring_surge at company9.com",
+      "detected_at": "2026-06-16T00:00:00"
+    },
+    {
+      "kind": "funding",
+      "account_domain": "company10.com",
+      "strength": 0.65,
+      "evidence": "Signal evidence for funding at company10.com",
+      "detected_at": "2026-06-08T00:00:00"
+    },
+    {
+      "kind": "eng_leadership_change",
+      "account_domain": "company11.com",
+      "strength": 0.86,
+      "evidence": "Signal evidence for eng_leadership_change at company11.com",
+      "detected_at": "2026-06-23T00:00:00"
+    },
+    {
+      "kind": "eng_leadership_change",
+      "account_domain": "company12.com",
+      "strength": 0.86,
+      "evidence": "Signal evidence for eng_leadership_change at company12.com",
+      "detected_at": "2026-06-22T00:00:00"
+    },
+    {
+      "kind": "tech_adoption",
+      "account_domain": "company13.com",
+      "strength": 0.61,
+      "evidence": "Signal evidence for tech_adoption at company13.com",
+      "detected_at": "2026-06-06T00:00:00"
+    },
+    {
+      "kind": "funding",
+      "account_domain": "company14.com",
+      "strength": 0.74,
+      "evidence": "Signal evidence for funding at company14.com",
+      "detected_at": "2026-06-09T00:00:00"
+    },
+    {
+      "kind": "dev_velocity_pain",
+      "account_domain": "company15.com",
+      "strength": 0.52,
+      "evidence": "Signal evidence for dev_velocity_pain at company15.com",
+      "detected_at": "2026-06-18T00:00:00"
+    }
+  ],
+  "companies": [
+    {
+      "domain": "company1.com",
+      "name": "Company 1",
+      "size": "50-200",
+      "funding": "Public",
+      "stack": [
+        "Rust",
+        "Go",
+        "TypeScript"
+      ],
+      "eng_headcount_trend": "growing"
+    },
+    {
+      "domain": "company2.com",
+      "name": "Company 2",
+      "size": "200-1000",
+      "funding": "Series C",
+      "stack": [
+        "Java",
+        "Python",
+        "TypeScript"
+      ],
+      "eng_headcount_trend": "shrinking"
+    },
+    {
+      "domain": "company3.com",
+      "name": "Company 3",
+      "size": "1000-5000",
+      "funding": null,
+      "stack": [
+        "TypeScript",
+        "Kubernetes",
+        "Java"
+      ],
+      "eng_headcount_trend": "stable"
+    },
+    {
+      "domain": "company4.com",
+      "name": "Company 4",
+      "size": "200-1000",
+      "funding": "Series B",
+      "stack": [
+        "Java",
+        "Kubernetes",
+        "AWS"
+      ],
+      "eng_headcount_trend": "shrinking"
+    },
+    {
+      "domain": "company5.com",
+      "name": "Company 5",
+      "size": "5000+",
+      "funding": null,
+      "stack": [
+        "AWS",
+        "Python",
+        "TypeScript"
+      ],
+      "eng_headcount_trend": "stable"
+    },
+    {
+      "domain": "company6.com",
+      "name": "Company 6",
+      "size": "1000-5000",
+      "funding": "Public",
+      "stack": [
+        "Java",
+        "AWS",
+        "Go"
+      ],
+      "eng_headcount_trend": "shrinking"
+    },
+    {
+      "domain": "company7.com",
+      "name": "Company 7",
+      "size": "200-1000",
+      "funding": "Series A",
+      "stack": [
+        "TypeScript",
+        "Rust",
+        "Kubernetes"
+      ],
+      "eng_headcount_trend": "stable"
+    },
+    {
+      "domain": "company8.com",
+      "name": "Company 8",
+      "size": "200-1000",
+      "funding": "Series C",
+      "stack": [
+        "Go",
+        "AWS",
+        "Kubernetes"
+      ],
+      "eng_headcount_trend": "growing"
+    },
+    {
+      "domain": "company9.com",
+      "name": "Company 9",
+      "size": "50-200",
+      "funding": "Public",
+      "stack": [
+        "Java",
+        "Kubernetes",
+        "Rust"
+      ],
+      "eng_headcount_trend": "growing"
+    },
+    {
+      "domain": "company10.com",
+      "name": "Company 10",
+      "size": "200-1000",
+      "funding": "Series A",
+      "stack": [
+        "AWS",
+        "Python",
+        "Java"
+      ],
+      "eng_headcount_trend": "growing"
+    },
+    {
+      "domain": "company11.com",
+      "name": "Company 11",
+      "size": "5000+",
+      "funding": "Series A",
+      "stack": [
+        "Rust",
+        "Go",
+        "Python"
+      ],
+      "eng_headcount_trend": "stable"
+    },
+    {
+      "domain": "company12.com",
+      "name": "Company 12",
+      "size": "1000-5000",
+      "funding": "Public",
+      "stack": [
+        "Rust",
+        "Kubernetes",
+        "AWS"
+      ],
+      "eng_headcount_trend": "stable"
+    },
+    {
+      "domain": "company13.com",
+      "name": "Company 13",
+      "size": "5000+",
+      "funding": "Public",
+      "stack": [
+        "TypeScript",
+        "Go",
+        "AWS"
+      ],
+      "eng_headcount_trend": "shrinking"
+    },
+    {
+      "domain": "company14.com",
+      "name": "Company 14",
+      "size": "5000+",
+      "funding": "Series A",
+      "stack": [
+        "Kubernetes",
+        "TypeScript",
+        "Go"
+      ],
+      "eng_headcount_trend": "stable"
+    },
+    {
+      "domain": "company15.com",
+      "name": "Company 15",
+      "size": "50-200",
+      "funding": "Series B",
+      "stack": [
+        "Go",
+        "AWS",
+        "Java"
+      ],
+      "eng_headcount_trend": "shrinking"
+    }
+  ],
+  "contacts": []
+}

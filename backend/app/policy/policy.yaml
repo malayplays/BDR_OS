@@ -1,0 +1,24 @@
+# BDR OS Policy Configuration
+# Loaded by guardrails.py at runtime; env vars override for sensitive values.
+
+draft_only:
+  enabled: true
+  until: "2026-09-15"  # DRAFT_ONLY_UNTIL env var overrides
+
+rate_limits:
+  max_new_outbound_per_day: 40
+  max_touches_per_contact_per_week: 3
+
+deliverability:
+  send_window_start: "08:00"
+  send_window_end: "18:00"
+  timezone: recipient_local
+  no_send_days: [saturday, sunday]
+  per_domain_daily_cap: 50  # [CONFIRM WEEK 1]
+
+auto_approve_whitelist:
+  - crm_note_log
+  - research_brief
+  - call_prep
+  - pipeline_hygiene_autofix
+  - reporting_personal_recap

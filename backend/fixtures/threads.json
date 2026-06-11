@@ -1,0 +1,1062 @@
+{
+  "threads": [
+    {
+      "ref": "thread-001",
+      "subject": "Re: Quick question about developer productivity (1)",
+      "messages": [
+        {
+          "id": "msg-001-1",
+          "thread_ref": "thread-001",
+          "sender": "malay@example.com",
+          "to": [
+            "contact1@example.com"
+          ],
+          "subject": "Re: Quick question about developer productivity (1)",
+          "body": "Hey \u2014 saw your team is growing fast. Worth 15 min to see how Devin can help?",
+          "sent_at": "2026-06-08T16:00:00"
+        },
+        {
+          "id": "msg-001-2",
+          "thread_ref": "thread-001",
+          "sender": "contact1@example.com",
+          "to": [
+            "malay@example.com"
+          ],
+          "subject": "Re: Quick question about developer productivity (1)",
+          "body": "We already use Copilot Enterprise, not interested.",
+          "sent_at": "2026-06-10T14:00:00"
+        }
+      ]
+    },
+    {
+      "ref": "thread-002",
+      "subject": "Re: Quick question about developer productivity (2)",
+      "messages": [
+        {
+          "id": "msg-002-1",
+          "thread_ref": "thread-002",
+          "sender": "malay@example.com",
+          "to": [
+            "contact2@example.com"
+          ],
+          "subject": "Re: Quick question about developer productivity (2)",
+          "body": "Hey \u2014 saw your team is growing fast. Worth 15 min to see how Devin can help?",
+          "sent_at": "2026-05-31T10:00:00"
+        }
+      ]
+    },
+    {
+      "ref": "thread-003",
+      "subject": "Re: Quick question about developer productivity (3)",
+      "messages": [
+        {
+          "id": "msg-003-1",
+          "thread_ref": "thread-003",
+          "sender": "malay@example.com",
+          "to": [
+            "contact3@example.com"
+          ],
+          "subject": "Re: Quick question about developer productivity (3)",
+          "body": "Hey \u2014 saw your team is growing fast. Worth 15 min to see how Devin can help?",
+          "sent_at": "2026-05-31T21:00:00"
+        },
+        {
+          "id": "msg-003-2",
+          "thread_ref": "thread-003",
+          "sender": "contact3@example.com",
+          "to": [
+            "malay@example.com"
+          ],
+          "subject": "Re: Quick question about developer productivity (3)",
+          "body": "We tried something similar and it didn't work.",
+          "sent_at": "2026-06-03T15:00:00"
+        }
+      ]
+    },
+    {
+      "ref": "thread-004",
+      "subject": "Re: Quick question about developer productivity (4)",
+      "messages": [
+        {
+          "id": "msg-004-1",
+          "thread_ref": "thread-004",
+          "sender": "malay@example.com",
+          "to": [
+            "contact4@example.com"
+          ],
+          "subject": "Re: Quick question about developer productivity (4)",
+          "body": "Hey \u2014 saw your team is growing fast. Worth 15 min to see how Devin can help?",
+          "sent_at": "2026-05-31T04:00:00"
+        },
+        {
+          "id": "msg-004-2",
+          "thread_ref": "thread-004",
+          "sender": "contact4@example.com",
+          "to": [
+            "malay@example.com"
+          ],
+          "subject": "Re: Quick question about developer productivity (4)",
+          "body": "Not a priority right now.",
+          "sent_at": "2026-06-02T02:00:00"
+        }
+      ]
+    },
+    {
+      "ref": "thread-005",
+      "subject": "Re: Quick question about developer productivity (5)",
+      "messages": [
+        {
+          "id": "msg-005-1",
+          "thread_ref": "thread-005",
+          "sender": "malay@example.com",
+          "to": [
+            "contact5@example.com"
+          ],
+          "subject": "Re: Quick question about developer productivity (5)",
+          "body": "Hey \u2014 saw your team is growing fast. Worth 15 min to see how Devin can help?",
+          "sent_at": "2026-06-06T20:00:00"
+        }
+      ]
+    },
+    {
+      "ref": "thread-006",
+      "subject": "Re: Quick question about developer productivity (6)",
+      "messages": [
+        {
+          "id": "msg-006-1",
+          "thread_ref": "thread-006",
+          "sender": "malay@example.com",
+          "to": [
+            "contact6@example.com"
+          ],
+          "subject": "Re: Quick question about developer productivity (6)",
+          "body": "Hey \u2014 saw your team is growing fast. Worth 15 min to see how Devin can help?",
+          "sent_at": "2026-06-08T08:00:00"
+        },
+        {
+          "id": "msg-006-2",
+          "thread_ref": "thread-006",
+          "sender": "mailer-daemon@example.com",
+          "to": [
+            "malay@example.com"
+          ],
+          "subject": "Undeliverable: Re: Quick question about developer productivity (6)",
+          "body": "Undeliverable: The email address could not be found.",
+          "sent_at": "2026-06-10T10:00:00"
+        }
+      ]
+    },
+    {
+      "ref": "thread-007",
+      "subject": "Re: Quick question about developer productivity (7)",
+      "messages": [
+        {
+          "id": "msg-007-1",
+          "thread_ref": "thread-007",
+          "sender": "malay@example.com",
+          "to": [
+            "contact7@example.com"
+          ],
+          "subject": "Re: Quick question about developer productivity (7)",
+          "body": "Hey \u2014 saw your team is growing fast. Worth 15 min to see how Devin can help?",
+          "sent_at": "2026-06-04T15:00:00"
+        },
+        {
+          "id": "msg-007-2",
+          "thread_ref": "thread-007",
+          "sender": "contact7@example.com",
+          "to": [
+            "malay@example.com"
+          ],
+          "subject": "Automatic reply: Re: Quick question about developer productivity (7)",
+          "body": "Out of office: I'll be away until July 15. For urgent matters contact my colleague.",
+          "sent_at": "2026-06-07T14:00:00"
+        }
+      ]
+    },
+    {
+      "ref": "thread-008",
+      "subject": "Re: Quick question about developer productivity (8)",
+      "messages": [
+        {
+          "id": "msg-008-1",
+          "thread_ref": "thread-008",
+          "sender": "malay@example.com",
+          "to": [
+            "contact8@example.com"
+          ],
+          "subject": "Re: Quick question about developer productivity (8)",
+          "body": "Hey \u2014 saw your team is growing fast. Worth 15 min to see how Devin can help?",
+          "sent_at": "2026-06-01T00:00:00"
+        },
+        {
+          "id": "msg-008-2",
+          "thread_ref": "thread-008",
+          "sender": "contact8@example.com",
+          "to": [
+            "malay@example.com"
+          ],
+          "subject": "Re: Quick question about developer productivity (8)",
+          "body": "Can you reach out again in Q1?",
+          "sent_at": "2026-06-02T15:00:00"
+        }
+      ]
+    },
+    {
+      "ref": "thread-009",
+      "subject": "Re: Quick question about developer productivity (9)",
+      "messages": [
+        {
+          "id": "msg-009-1",
+          "thread_ref": "thread-009",
+          "sender": "malay@example.com",
+          "to": [
+            "contact9@example.com"
+          ],
+          "subject": "Re: Quick question about developer productivity (9)",
+          "body": "Hey \u2014 saw your team is growing fast. Worth 15 min to see how Devin can help?",
+          "sent_at": "2026-06-08T19:00:00"
+        },
+        {
+          "id": "msg-009-2",
+          "thread_ref": "thread-009",
+          "sender": "mailer-daemon@example.com",
+          "to": [
+            "malay@example.com"
+          ],
+          "subject": "Undeliverable: Re: Quick question about developer productivity (9)",
+          "body": "Undeliverable: The email address could not be found.",
+          "sent_at": "2026-06-10T05:00:00"
+        }
+      ]
+    },
+    {
+      "ref": "thread-010",
+      "subject": "Re: Quick question about developer productivity (10)",
+      "messages": [
+        {
+          "id": "msg-010-1",
+          "thread_ref": "thread-010",
+          "sender": "malay@example.com",
+          "to": [
+            "contact10@example.com"
+          ],
+          "subject": "Re: Quick question about developer productivity (10)",
+          "body": "Hey \u2014 saw your team is growing fast. Worth 15 min to see how Devin can help?",
+          "sent_at": "2026-06-08T01:00:00"
+        }
+      ]
+    },
+    {
+      "ref": "thread-011",
+      "subject": "Re: Quick question about developer productivity (11)",
+      "messages": [
+        {
+          "id": "msg-011-1",
+          "thread_ref": "thread-011",
+          "sender": "malay@example.com",
+          "to": [
+            "contact11@example.com"
+          ],
+          "subject": "Re: Quick question about developer productivity (11)",
+          "body": "Hey \u2014 saw your team is growing fast. Worth 15 min to see how Devin can help?",
+          "sent_at": "2026-06-08T07:00:00"
+        },
+        {
+          "id": "msg-011-2",
+          "thread_ref": "thread-011",
+          "sender": "contact11@example.com",
+          "to": [
+            "malay@example.com"
+          ],
+          "subject": "Automatic reply: Re: Quick question about developer productivity (11)",
+          "body": "Out of office: I'll be away until July 15. For urgent matters contact my colleague.",
+          "sent_at": "2026-06-10T09:00:00"
+        }
+      ]
+    },
+    {
+      "ref": "thread-012",
+      "subject": "Re: Quick question about developer productivity (12)",
+      "messages": [
+        {
+          "id": "msg-012-1",
+          "thread_ref": "thread-012",
+          "sender": "malay@example.com",
+          "to": [
+            "contact12@example.com"
+          ],
+          "subject": "Re: Quick question about developer productivity (12)",
+          "body": "Hey \u2014 saw your team is growing fast. Worth 15 min to see how Devin can help?",
+          "sent_at": "2026-05-30T19:00:00"
+        }
+      ]
+    },
+    {
+      "ref": "thread-013",
+      "subject": "Re: Quick question about developer productivity (13)",
+      "messages": [
+        {
+          "id": "msg-013-1",
+          "thread_ref": "thread-013",
+          "sender": "malay@example.com",
+          "to": [
+            "contact13@example.com"
+          ],
+          "subject": "Re: Quick question about developer productivity (13)",
+          "body": "Hey \u2014 saw your team is growing fast. Worth 15 min to see how Devin can help?",
+          "sent_at": "2026-06-06T23:00:00"
+        },
+        {
+          "id": "msg-013-2",
+          "thread_ref": "thread-013",
+          "sender": "contact13@example.com",
+          "to": [
+            "malay@example.com"
+          ],
+          "subject": "Re: Quick question about developer productivity (13)",
+          "body": "This is interesting, can you send more info?",
+          "sent_at": "2026-06-08T20:00:00"
+        }
+      ]
+    },
+    {
+      "ref": "thread-014",
+      "subject": "Re: Quick question about developer productivity (14)",
+      "messages": [
+        {
+          "id": "msg-014-1",
+          "thread_ref": "thread-014",
+          "sender": "malay@example.com",
+          "to": [
+            "contact14@example.com"
+          ],
+          "subject": "Re: Quick question about developer productivity (14)",
+          "body": "Hey \u2014 saw your team is growing fast. Worth 15 min to see how Devin can help?",
+          "sent_at": "2026-06-07T06:00:00"
+        },
+        {
+          "id": "msg-014-2",
+          "thread_ref": "thread-014",
+          "sender": "contact14@example.com",
+          "to": [
+            "malay@example.com"
+          ],
+          "subject": "Re: Quick question about developer productivity (14)",
+          "body": "Send me info and I'll review when I have time.",
+          "sent_at": "2026-06-09T08:00:00"
+        }
+      ]
+    },
+    {
+      "ref": "thread-015",
+      "subject": "Re: Quick question about developer productivity (15)",
+      "messages": [
+        {
+          "id": "msg-015-1",
+          "thread_ref": "thread-015",
+          "sender": "malay@example.com",
+          "to": [
+            "contact15@example.com"
+          ],
+          "subject": "Re: Quick question about developer productivity (15)",
+          "body": "Hey \u2014 saw your team is growing fast. Worth 15 min to see how Devin can help?",
+          "sent_at": "2026-06-06T19:00:00"
+        }
+      ]
+    },
+    {
+      "ref": "thread-016",
+      "subject": "Re: Quick question about developer productivity (16)",
+      "messages": [
+        {
+          "id": "msg-016-1",
+          "thread_ref": "thread-016",
+          "sender": "malay@example.com",
+          "to": [
+            "contact16@example.com"
+          ],
+          "subject": "Re: Quick question about developer productivity (16)",
+          "body": "Hey \u2014 saw your team is growing fast. Worth 15 min to see how Devin can help?",
+          "sent_at": "2026-06-07T06:00:00"
+        },
+        {
+          "id": "msg-016-2",
+          "thread_ref": "thread-016",
+          "sender": "contact16@example.com",
+          "to": [
+            "malay@example.com"
+          ],
+          "subject": "Re: Quick question about developer productivity (16)",
+          "body": "Sounds relevant \u2014 can you show me a quick demo?",
+          "sent_at": "2026-06-10T05:00:00"
+        }
+      ]
+    },
+    {
+      "ref": "thread-017",
+      "subject": "Re: Quick question about developer productivity (17)",
+      "messages": [
+        {
+          "id": "msg-017-1",
+          "thread_ref": "thread-017",
+          "sender": "malay@example.com",
+          "to": [
+            "contact17@example.com"
+          ],
+          "subject": "Re: Quick question about developer productivity (17)",
+          "body": "Hey \u2014 saw your team is growing fast. Worth 15 min to see how Devin can help?",
+          "sent_at": "2026-06-08T00:00:00"
+        }
+      ]
+    },
+    {
+      "ref": "thread-018",
+      "subject": "Re: Quick question about developer productivity (18)",
+      "messages": [
+        {
+          "id": "msg-018-1",
+          "thread_ref": "thread-018",
+          "sender": "malay@example.com",
+          "to": [
+            "contact18@example.com"
+          ],
+          "subject": "Re: Quick question about developer productivity (18)",
+          "body": "Hey \u2014 saw your team is growing fast. Worth 15 min to see how Devin can help?",
+          "sent_at": "2026-06-02T10:00:00"
+        }
+      ]
+    },
+    {
+      "ref": "thread-019",
+      "subject": "Re: Quick question about developer productivity (19)",
+      "messages": [
+        {
+          "id": "msg-019-1",
+          "thread_ref": "thread-019",
+          "sender": "malay@example.com",
+          "to": [
+            "contact19@example.com"
+          ],
+          "subject": "Re: Quick question about developer productivity (19)",
+          "body": "Hey \u2014 saw your team is growing fast. Worth 15 min to see how Devin can help?",
+          "sent_at": "2026-06-06T13:00:00"
+        },
+        {
+          "id": "msg-019-2",
+          "thread_ref": "thread-019",
+          "sender": "contact19@example.com",
+          "to": [
+            "malay@example.com"
+          ],
+          "subject": "Automatic reply: Re: Quick question about developer productivity (19)",
+          "body": "Out of office: I'll be away until July 15. For urgent matters contact my colleague.",
+          "sent_at": "2026-06-09T09:00:00"
+        }
+      ]
+    },
+    {
+      "ref": "thread-020",
+      "subject": "Re: Quick question about developer productivity (20)",
+      "messages": [
+        {
+          "id": "msg-020-1",
+          "thread_ref": "thread-020",
+          "sender": "malay@example.com",
+          "to": [
+            "contact20@example.com"
+          ],
+          "subject": "Re: Quick question about developer productivity (20)",
+          "body": "Hey \u2014 saw your team is growing fast. Worth 15 min to see how Devin can help?",
+          "sent_at": "2026-05-31T03:00:00"
+        },
+        {
+          "id": "msg-020-2",
+          "thread_ref": "thread-020",
+          "sender": "contact20@example.com",
+          "to": [
+            "malay@example.com"
+          ],
+          "subject": "Automatic reply: Re: Quick question about developer productivity (20)",
+          "body": "Out of office: I'll be away until July 15. For urgent matters contact my colleague.",
+          "sent_at": "2026-06-02T03:00:00"
+        }
+      ]
+    },
+    {
+      "ref": "thread-021",
+      "subject": "Re: Quick question about developer productivity (21)",
+      "messages": [
+        {
+          "id": "msg-021-1",
+          "thread_ref": "thread-021",
+          "sender": "malay@example.com",
+          "to": [
+            "contact21@example.com"
+          ],
+          "subject": "Re: Quick question about developer productivity (21)",
+          "body": "Hey \u2014 saw your team is growing fast. Worth 15 min to see how Devin can help?",
+          "sent_at": "2026-06-09T05:00:00"
+        },
+        {
+          "id": "msg-021-2",
+          "thread_ref": "thread-021",
+          "sender": "contact21@example.com",
+          "to": [
+            "malay@example.com"
+          ],
+          "subject": "Re: Quick question about developer productivity (21)",
+          "body": "We've been looking at tools like this. Let's set up time.",
+          "sent_at": "2026-06-10T07:00:00"
+        }
+      ]
+    },
+    {
+      "ref": "thread-022",
+      "subject": "Re: Quick question about developer productivity (22)",
+      "messages": [
+        {
+          "id": "msg-022-1",
+          "thread_ref": "thread-022",
+          "sender": "malay@example.com",
+          "to": [
+            "contact22@example.com"
+          ],
+          "subject": "Re: Quick question about developer productivity (22)",
+          "body": "Hey \u2014 saw your team is growing fast. Worth 15 min to see how Devin can help?",
+          "sent_at": "2026-06-07T21:00:00"
+        }
+      ]
+    },
+    {
+      "ref": "thread-023",
+      "subject": "Re: Quick question about developer productivity (23)",
+      "messages": [
+        {
+          "id": "msg-023-1",
+          "thread_ref": "thread-023",
+          "sender": "malay@example.com",
+          "to": [
+            "contact23@example.com"
+          ],
+          "subject": "Re: Quick question about developer productivity (23)",
+          "body": "Hey \u2014 saw your team is growing fast. Worth 15 min to see how Devin can help?",
+          "sent_at": "2026-06-01T20:00:00"
+        }
+      ]
+    },
+    {
+      "ref": "thread-024",
+      "subject": "Re: Quick question about developer productivity (24)",
+      "messages": [
+        {
+          "id": "msg-024-1",
+          "thread_ref": "thread-024",
+          "sender": "malay@example.com",
+          "to": [
+            "contact24@example.com"
+          ],
+          "subject": "Re: Quick question about developer productivity (24)",
+          "body": "Hey \u2014 saw your team is growing fast. Worth 15 min to see how Devin can help?",
+          "sent_at": "2026-06-07T12:00:00"
+        },
+        {
+          "id": "msg-024-2",
+          "thread_ref": "thread-024",
+          "sender": "contact24@example.com",
+          "to": [
+            "malay@example.com"
+          ],
+          "subject": "Re: Quick question about developer productivity (24)",
+          "body": "Yes, this is timely for us. Let's connect.",
+          "sent_at": "2026-06-09T17:00:00"
+        }
+      ]
+    },
+    {
+      "ref": "thread-025",
+      "subject": "Re: Quick question about developer productivity (25)",
+      "messages": [
+        {
+          "id": "msg-025-1",
+          "thread_ref": "thread-025",
+          "sender": "malay@example.com",
+          "to": [
+            "contact25@example.com"
+          ],
+          "subject": "Re: Quick question about developer productivity (25)",
+          "body": "Hey \u2014 saw your team is growing fast. Worth 15 min to see how Devin can help?",
+          "sent_at": "2026-06-02T22:00:00"
+        },
+        {
+          "id": "msg-025-2",
+          "thread_ref": "thread-025",
+          "sender": "contact25@example.com",
+          "to": [
+            "malay@example.com"
+          ],
+          "subject": "Re: Quick question about developer productivity (25)",
+          "body": "We already use Copilot Enterprise, not interested.",
+          "sent_at": "2026-06-04T17:00:00"
+        }
+      ]
+    },
+    {
+      "ref": "thread-026",
+      "subject": "Re: Quick question about developer productivity (26)",
+      "messages": [
+        {
+          "id": "msg-026-1",
+          "thread_ref": "thread-026",
+          "sender": "malay@example.com",
+          "to": [
+            "contact26@example.com"
+          ],
+          "subject": "Re: Quick question about developer productivity (26)",
+          "body": "Hey \u2014 saw your team is growing fast. Worth 15 min to see how Devin can help?",
+          "sent_at": "2026-06-08T04:00:00"
+        },
+        {
+          "id": "msg-026-2",
+          "thread_ref": "thread-026",
+          "sender": "contact26@example.com",
+          "to": [
+            "malay@example.com"
+          ],
+          "subject": "Re: Quick question about developer productivity (26)",
+          "body": "Sure, happy to chat. What does next week look like?",
+          "sent_at": "2026-06-09T18:00:00"
+        }
+      ]
+    },
+    {
+      "ref": "thread-027",
+      "subject": "Re: Quick question about developer productivity (27)",
+      "messages": [
+        {
+          "id": "msg-027-1",
+          "thread_ref": "thread-027",
+          "sender": "malay@example.com",
+          "to": [
+            "contact27@example.com"
+          ],
+          "subject": "Re: Quick question about developer productivity (27)",
+          "body": "Hey \u2014 saw your team is growing fast. Worth 15 min to see how Devin can help?",
+          "sent_at": "2026-06-02T08:00:00"
+        },
+        {
+          "id": "msg-027-2",
+          "thread_ref": "thread-027",
+          "sender": "contact27@example.com",
+          "to": [
+            "malay@example.com"
+          ],
+          "subject": "Re: Quick question about developer productivity (27)",
+          "body": "We've been looking at tools like this. Let's set up time.",
+          "sent_at": "2026-06-03T09:00:00"
+        }
+      ]
+    },
+    {
+      "ref": "thread-028",
+      "subject": "Re: Quick question about developer productivity (28)",
+      "messages": [
+        {
+          "id": "msg-028-1",
+          "thread_ref": "thread-028",
+          "sender": "malay@example.com",
+          "to": [
+            "contact28@example.com"
+          ],
+          "subject": "Re: Quick question about developer productivity (28)",
+          "body": "Hey \u2014 saw your team is growing fast. Worth 15 min to see how Devin can help?",
+          "sent_at": "2026-06-06T12:00:00"
+        },
+        {
+          "id": "msg-028-2",
+          "thread_ref": "thread-028",
+          "sender": "contact28@example.com",
+          "to": [
+            "malay@example.com"
+          ],
+          "subject": "Re: Quick question about developer productivity (28)",
+          "body": "Not a priority right now.",
+          "sent_at": "2026-06-08T00:00:00"
+        }
+      ]
+    },
+    {
+      "ref": "thread-029",
+      "subject": "Re: Quick question about developer productivity (29)",
+      "messages": [
+        {
+          "id": "msg-029-1",
+          "thread_ref": "thread-029",
+          "sender": "malay@example.com",
+          "to": [
+            "contact29@example.com"
+          ],
+          "subject": "Re: Quick question about developer productivity (29)",
+          "body": "Hey \u2014 saw your team is growing fast. Worth 15 min to see how Devin can help?",
+          "sent_at": "2026-06-03T09:00:00"
+        }
+      ]
+    },
+    {
+      "ref": "thread-030",
+      "subject": "Re: Quick question about developer productivity (30)",
+      "messages": [
+        {
+          "id": "msg-030-1",
+          "thread_ref": "thread-030",
+          "sender": "malay@example.com",
+          "to": [
+            "contact30@example.com"
+          ],
+          "subject": "Re: Quick question about developer productivity (30)",
+          "body": "Hey \u2014 saw your team is growing fast. Worth 15 min to see how Devin can help?",
+          "sent_at": "2026-06-02T19:00:00"
+        },
+        {
+          "id": "msg-030-2",
+          "thread_ref": "thread-030",
+          "sender": "contact30@example.com",
+          "to": [
+            "malay@example.com"
+          ],
+          "subject": "Re: Quick question about developer productivity (30)",
+          "body": "Send me info and I'll review when I have time.",
+          "sent_at": "2026-06-03T23:00:00"
+        }
+      ]
+    }
+  ],
+  "thread_summaries": [
+    {
+      "ref": "thread-001",
+      "subject": "Re: Quick question about developer productivity (1)",
+      "last_message_at": "2026-06-10T14:00:00",
+      "snippet": "We already use Copilot Enterprise, not interested."
+    },
+    {
+      "ref": "thread-002",
+      "subject": "Re: Quick question about developer productivity (2)",
+      "last_message_at": "2026-06-03T05:00:00",
+      "snippet": "Hey \u2014 saw your team is growing fast. Worth 15 min to see how Devin can help?"
+    },
+    {
+      "ref": "thread-003",
+      "subject": "Re: Quick question about developer productivity (3)",
+      "last_message_at": "2026-06-03T15:00:00",
+      "snippet": "We tried something similar and it didn't work."
+    },
+    {
+      "ref": "thread-004",
+      "subject": "Re: Quick question about developer productivity (4)",
+      "last_message_at": "2026-06-02T02:00:00",
+      "snippet": "Not a priority right now."
+    },
+    {
+      "ref": "thread-005",
+      "subject": "Re: Quick question about developer productivity (5)",
+      "last_message_at": "2026-06-09T07:00:00",
+      "snippet": "Hey \u2014 saw your team is growing fast. Worth 15 min to see how Devin can help?"
+    },
+    {
+      "ref": "thread-006",
+      "subject": "Re: Quick question about developer productivity (6)",
+      "last_message_at": "2026-06-10T10:00:00",
+      "snippet": "Undeliverable: The email address could not be found."
+    },
+    {
+      "ref": "thread-007",
+      "subject": "Re: Quick question about developer productivity (7)",
+      "last_message_at": "2026-06-07T14:00:00",
+      "snippet": "Out of office: I'll be away until July 15. For urgent matters contact my colleag"
+    },
+    {
+      "ref": "thread-008",
+      "subject": "Re: Quick question about developer productivity (8)",
+      "last_message_at": "2026-06-02T15:00:00",
+      "snippet": "Can you reach out again in Q1?"
+    },
+    {
+      "ref": "thread-009",
+      "subject": "Re: Quick question about developer productivity (9)",
+      "last_message_at": "2026-06-10T05:00:00",
+      "snippet": "Undeliverable: The email address could not be found."
+    },
+    {
+      "ref": "thread-010",
+      "subject": "Re: Quick question about developer productivity (10)",
+      "last_message_at": "2026-06-09T12:00:00",
+      "snippet": "Hey \u2014 saw your team is growing fast. Worth 15 min to see how Devin can help?"
+    },
+    {
+      "ref": "thread-011",
+      "subject": "Re: Quick question about developer productivity (11)",
+      "last_message_at": "2026-06-10T09:00:00",
+      "snippet": "Out of office: I'll be away until July 15. For urgent matters contact my colleag"
+    },
+    {
+      "ref": "thread-012",
+      "subject": "Re: Quick question about developer productivity (12)",
+      "last_message_at": "2026-06-01T06:00:00",
+      "snippet": "Hey \u2014 saw your team is growing fast. Worth 15 min to see how Devin can help?"
+    },
+    {
+      "ref": "thread-013",
+      "subject": "Re: Quick question about developer productivity (13)",
+      "last_message_at": "2026-06-08T20:00:00",
+      "snippet": "This is interesting, can you send more info?"
+    },
+    {
+      "ref": "thread-014",
+      "subject": "Re: Quick question about developer productivity (14)",
+      "last_message_at": "2026-06-09T08:00:00",
+      "snippet": "Send me info and I'll review when I have time."
+    },
+    {
+      "ref": "thread-015",
+      "subject": "Re: Quick question about developer productivity (15)",
+      "last_message_at": "2026-06-09T13:00:00",
+      "snippet": "Hey \u2014 saw your team is growing fast. Worth 15 min to see how Devin can help?"
+    },
+    {
+      "ref": "thread-016",
+      "subject": "Re: Quick question about developer productivity (16)",
+      "last_message_at": "2026-06-10T05:00:00",
+      "snippet": "Sounds relevant \u2014 can you show me a quick demo?"
+    },
+    {
+      "ref": "thread-017",
+      "subject": "Re: Quick question about developer productivity (17)",
+      "last_message_at": "2026-06-09T15:00:00",
+      "snippet": "Hey \u2014 saw your team is growing fast. Worth 15 min to see how Devin can help?"
+    },
+    {
+      "ref": "thread-018",
+      "subject": "Re: Quick question about developer productivity (18)",
+      "last_message_at": "2026-06-03T20:00:00",
+      "snippet": "Hey \u2014 saw your team is growing fast. Worth 15 min to see how Devin can help?"
+    },
+    {
+      "ref": "thread-019",
+      "subject": "Re: Quick question about developer productivity (19)",
+      "last_message_at": "2026-06-09T09:00:00",
+      "snippet": "Out of office: I'll be away until July 15. For urgent matters contact my colleag"
+    },
+    {
+      "ref": "thread-020",
+      "subject": "Re: Quick question about developer productivity (20)",
+      "last_message_at": "2026-06-02T03:00:00",
+      "snippet": "Out of office: I'll be away until July 15. For urgent matters contact my colleag"
+    },
+    {
+      "ref": "thread-021",
+      "subject": "Re: Quick question about developer productivity (21)",
+      "last_message_at": "2026-06-10T07:00:00",
+      "snippet": "We've been looking at tools like this. Let's set up time."
+    },
+    {
+      "ref": "thread-022",
+      "subject": "Re: Quick question about developer productivity (22)",
+      "last_message_at": "2026-06-10T03:00:00",
+      "snippet": "Hey \u2014 saw your team is growing fast. Worth 15 min to see how Devin can help?"
+    },
+    {
+      "ref": "thread-023",
+      "subject": "Re: Quick question about developer productivity (23)",
+      "last_message_at": "2026-06-03T08:00:00",
+      "snippet": "Hey \u2014 saw your team is growing fast. Worth 15 min to see how Devin can help?"
+    },
+    {
+      "ref": "thread-024",
+      "subject": "Re: Quick question about developer productivity (24)",
+      "last_message_at": "2026-06-09T17:00:00",
+      "snippet": "Yes, this is timely for us. Let's connect."
+    },
+    {
+      "ref": "thread-025",
+      "subject": "Re: Quick question about developer productivity (25)",
+      "last_message_at": "2026-06-04T17:00:00",
+      "snippet": "We already use Copilot Enterprise, not interested."
+    },
+    {
+      "ref": "thread-026",
+      "subject": "Re: Quick question about developer productivity (26)",
+      "last_message_at": "2026-06-09T18:00:00",
+      "snippet": "Sure, happy to chat. What does next week look like?"
+    },
+    {
+      "ref": "thread-027",
+      "subject": "Re: Quick question about developer productivity (27)",
+      "last_message_at": "2026-06-03T09:00:00",
+      "snippet": "We've been looking at tools like this. Let's set up time."
+    },
+    {
+      "ref": "thread-028",
+      "subject": "Re: Quick question about developer productivity (28)",
+      "last_message_at": "2026-06-08T00:00:00",
+      "snippet": "Not a priority right now."
+    },
+    {
+      "ref": "thread-029",
+      "subject": "Re: Quick question about developer productivity (29)",
+      "last_message_at": "2026-06-05T06:00:00",
+      "snippet": "Hey \u2014 saw your team is growing fast. Worth 15 min to see how Devin can help?"
+    },
+    {
+      "ref": "thread-030",
+      "subject": "Re: Quick question about developer productivity (30)",
+      "last_message_at": "2026-06-03T23:00:00",
+      "snippet": "Send me info and I'll review when I have time."
+    }
+  ],
+  "inbound_messages": [
+    {
+      "id": "msg-001-2",
+      "thread_ref": "thread-001",
+      "sender": "contact1@example.com",
+      "subject": "Re: Quick question about developer productivity (1)",
+      "body": "We already use Copilot Enterprise, not interested.",
+      "received_at": "2026-06-10T14:00:00"
+    },
+    {
+      "id": "msg-003-2",
+      "thread_ref": "thread-003",
+      "sender": "contact3@example.com",
+      "subject": "Re: Quick question about developer productivity (3)",
+      "body": "We tried something similar and it didn't work.",
+      "received_at": "2026-06-03T15:00:00"
+    },
+    {
+      "id": "msg-004-2",
+      "thread_ref": "thread-004",
+      "sender": "contact4@example.com",
+      "subject": "Re: Quick question about developer productivity (4)",
+      "body": "Not a priority right now.",
+      "received_at": "2026-06-02T02:00:00"
+    },
+    {
+      "id": "msg-007-2",
+      "thread_ref": "thread-007",
+      "sender": "contact7@example.com",
+      "subject": "Automatic reply: Re: Quick question about developer productivity (7)",
+      "body": "Out of office: I'll be away until July 15. For urgent matters contact my colleague.",
+      "received_at": "2026-06-07T14:00:00"
+    },
+    {
+      "id": "msg-008-2",
+      "thread_ref": "thread-008",
+      "sender": "contact8@example.com",
+      "subject": "Re: Quick question about developer productivity (8)",
+      "body": "Can you reach out again in Q1?",
+      "received_at": "2026-06-02T15:00:00"
+    },
+    {
+      "id": "msg-011-2",
+      "thread_ref": "thread-011",
+      "sender": "contact11@example.com",
+      "subject": "Automatic reply: Re: Quick question about developer productivity (11)",
+      "body": "Out of office: I'll be away until July 15. For urgent matters contact my colleague.",
+      "received_at": "2026-06-10T09:00:00"
+    },
+    {
+      "id": "msg-013-2",
+      "thread_ref": "thread-013",
+      "sender": "contact13@example.com",
+      "subject": "Re: Quick question about developer productivity (13)",
+      "body": "This is interesting, can you send more info?",
+      "received_at": "2026-06-08T20:00:00"
+    },
+    {
+      "id": "msg-014-2",
+      "thread_ref": "thread-014",
+      "sender": "contact14@example.com",
+      "subject": "Re: Quick question about developer productivity (14)",
+      "body": "Send me info and I'll review when I have time.",
+      "received_at": "2026-06-09T08:00:00"
+    },
+    {
+      "id": "msg-016-2",
+      "thread_ref": "thread-016",
+      "sender": "contact16@example.com",
+      "subject": "Re: Quick question about developer productivity (16)",
+      "body": "Sounds relevant \u2014 can you show me a quick demo?",
+      "received_at": "2026-06-10T05:00:00"
+    },
+    {
+      "id": "msg-019-2",
+      "thread_ref": "thread-019",
+      "sender": "contact19@example.com",
+      "subject": "Automatic reply: Re: Quick question about developer productivity (19)",
+      "body": "Out of office: I'll be away until July 15. For urgent matters contact my colleague.",
+      "received_at": "2026-06-09T09:00:00"
+    },
+    {
+      "id": "msg-020-2",
+      "thread_ref": "thread-020",
+      "sender": "contact20@example.com",
+      "subject": "Automatic reply: Re: Quick question about developer productivity (20)",
+      "body": "Out of office: I'll be away until July 15. For urgent matters contact my colleague.",
+      "received_at": "2026-06-02T03:00:00"
+    },
+    {
+      "id": "msg-021-2",
+      "thread_ref": "thread-021",
+      "sender": "contact21@example.com",
+      "subject": "Re: Quick question about developer productivity (21)",
+      "body": "We've been looking at tools like this. Let's set up time.",
+      "received_at": "2026-06-10T07:00:00"
+    },
+    {
+      "id": "msg-024-2",
+      "thread_ref": "thread-024",
+      "sender": "contact24@example.com",
+      "subject": "Re: Quick question about developer productivity (24)",
+      "body": "Yes, this is timely for us. Let's connect.",
+      "received_at": "2026-06-09T17:00:00"
+    },
+    {
+      "id": "msg-025-2",
+      "thread_ref": "thread-025",
+      "sender": "contact25@example.com",
+      "subject": "Re: Quick question about developer productivity (25)",
+      "body": "We already use Copilot Enterprise, not interested.",
+      "received_at": "2026-06-04T17:00:00"
+    },
+    {
+      "id": "msg-026-2",
+      "thread_ref": "thread-026",
+      "sender": "contact26@example.com",
+      "subject": "Re: Quick question about developer productivity (26)",
+      "body": "Sure, happy to chat. What does next week look like?",
+      "received_at": "2026-06-09T18:00:00"
+    },
+    {
+      "id": "msg-027-2",
+      "thread_ref": "thread-027",
+      "sender": "contact27@example.com",
+      "subject": "Re: Quick question about developer productivity (27)",
+      "body": "We've been looking at tools like this. Let's set up time.",
+      "received_at": "2026-06-03T09:00:00"
+    },
+    {
+      "id": "msg-028-2",
+      "thread_ref": "thread-028",
+      "sender": "contact28@example.com",
+      "subject": "Re: Quick question about developer productivity (28)",
+      "body": "Not a priority right now.",
+      "received_at": "2026-06-08T00:00:00"
+    },
+    {
+      "id": "msg-030-2",
+      "thread_ref": "thread-030",
+      "sender": "contact30@example.com",
+      "subject": "Re: Quick question about developer productivity (30)",
+      "body": "Send me info and I'll review when I have time.",
+      "received_at": "2026-06-03T23:00:00"
+    }
+  ]
+}

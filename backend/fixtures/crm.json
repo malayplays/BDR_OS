@@ -1,0 +1,888 @@
+{
+  "accounts": [
+    {
+      "ref": "acct-001",
+      "name": "Acmecorp",
+      "domain": "acmecorp.com",
+      "tier": "standard",
+      "owner": "malay",
+      "custom": {}
+    },
+    {
+      "ref": "acct-002",
+      "name": "Techwave",
+      "domain": "techwave.io",
+      "tier": "target",
+      "owner": "malay",
+      "custom": {}
+    },
+    {
+      "ref": "acct-003",
+      "name": "Devstream",
+      "domain": "devstream.dev",
+      "tier": "target",
+      "owner": "malay",
+      "custom": {}
+    },
+    {
+      "ref": "acct-004",
+      "name": "Cloudnine",
+      "domain": "cloudnine.co",
+      "tier": "standard",
+      "owner": "malay",
+      "custom": {}
+    },
+    {
+      "ref": "acct-005",
+      "name": "Buildfast",
+      "domain": "buildfast.ai",
+      "tier": "standard",
+      "owner": "malay",
+      "custom": {}
+    },
+    {
+      "ref": "acct-006",
+      "name": "Codeflow",
+      "domain": "codeflow.com",
+      "tier": "target",
+      "owner": "malay",
+      "custom": {}
+    },
+    {
+      "ref": "acct-007",
+      "name": "Stackpush",
+      "domain": "stackpush.io",
+      "tier": "target",
+      "owner": "malay",
+      "custom": {}
+    },
+    {
+      "ref": "acct-008",
+      "name": "Deploybot",
+      "domain": "deploybot.dev",
+      "tier": "target",
+      "owner": "malay",
+      "custom": {}
+    },
+    {
+      "ref": "acct-009",
+      "name": "Infrascale",
+      "domain": "infrascale.co",
+      "tier": "standard",
+      "owner": "malay",
+      "custom": {}
+    },
+    {
+      "ref": "acct-010",
+      "name": "Pipelineops",
+      "domain": "pipelineops.ai",
+      "tier": "standard",
+      "owner": "malay",
+      "custom": {}
+    },
+    {
+      "ref": "acct-011",
+      "name": "Velocityeng",
+      "domain": "velocityeng.com",
+      "tier": "target",
+      "owner": "malay",
+      "custom": {}
+    },
+    {
+      "ref": "acct-012",
+      "name": "Shiphero",
+      "domain": "shiphero.io",
+      "tier": "standard",
+      "owner": "malay",
+      "custom": {}
+    },
+    {
+      "ref": "acct-013",
+      "name": "Testify",
+      "domain": "testify.dev",
+      "tier": "strategic",
+      "owner": "malay",
+      "custom": {}
+    },
+    {
+      "ref": "acct-014",
+      "name": "Cicdpro",
+      "domain": "cicdpro.co",
+      "tier": "standard",
+      "owner": "malay",
+      "custom": {}
+    },
+    {
+      "ref": "acct-015",
+      "name": "Gitforge",
+      "domain": "gitforge.ai",
+      "tier": "standard",
+      "owner": "malay",
+      "custom": {}
+    },
+    {
+      "ref": "acct-016",
+      "name": "Kubecraft",
+      "domain": "kubecraft.com",
+      "tier": "standard",
+      "owner": "malay",
+      "custom": {}
+    },
+    {
+      "ref": "acct-017",
+      "name": "Dockerly",
+      "domain": "dockerly.io",
+      "tier": "strategic",
+      "owner": "malay",
+      "custom": {}
+    },
+    {
+      "ref": "acct-018",
+      "name": "Terracloud",
+      "domain": "terracloud.dev",
+      "tier": "standard",
+      "owner": "malay",
+      "custom": {}
+    },
+    {
+      "ref": "acct-019",
+      "name": "Helmhub",
+      "domain": "helmhub.co",
+      "tier": "target",
+      "owner": "malay",
+      "custom": {}
+    },
+    {
+      "ref": "acct-020",
+      "name": "Argoflow",
+      "domain": "argoflow.ai",
+      "tier": "standard",
+      "owner": "malay",
+      "custom": {}
+    },
+    {
+      "ref": "acct-021",
+      "name": "Datamesh",
+      "domain": "datamesh.com",
+      "tier": "target",
+      "owner": "malay",
+      "custom": {}
+    },
+    {
+      "ref": "acct-022",
+      "name": "Mlpipe",
+      "domain": "mlpipe.io",
+      "tier": "target",
+      "owner": "malay",
+      "custom": {}
+    },
+    {
+      "ref": "acct-023",
+      "name": "Featurestore",
+      "domain": "featurestore.dev",
+      "tier": "strategic",
+      "owner": "malay",
+      "custom": {}
+    },
+    {
+      "ref": "acct-024",
+      "name": "Modelserve",
+      "domain": "modelserve.co",
+      "tier": "target",
+      "owner": "malay",
+      "custom": {}
+    },
+    {
+      "ref": "acct-025",
+      "name": "Aiops",
+      "domain": "aiops.ai",
+      "tier": "standard",
+      "owner": "malay",
+      "custom": {}
+    }
+  ],
+  "contacts": [
+    {
+      "ref": "con-001",
+      "account_ref": "acct-001",
+      "name": "Contact1 Lastname",
+      "title": "VP Engineering",
+      "email": "contact1@acmecorp.com",
+      "phone": "+1-555-877-3615",
+      "linkedin_url": "https://linkedin.com/in/contact1"
+    },
+    {
+      "ref": "con-002",
+      "account_ref": "acct-001",
+      "name": "Contact2 Lastname",
+      "title": "Senior Engineering Manager",
+      "email": "contact2@acmecorp.com",
+      "phone": "+1-555-384-3547",
+      "linkedin_url": "https://linkedin.com/in/contact2"
+    },
+    {
+      "ref": "con-003",
+      "account_ref": "acct-001",
+      "name": "Contact3 Lastname",
+      "title": "Staff Engineer",
+      "email": "contact3@acmecorp.com",
+      "phone": "+1-555-204-2519",
+      "linkedin_url": "https://linkedin.com/in/contact3"
+    },
+    {
+      "ref": "con-004",
+      "account_ref": "acct-001",
+      "name": "Contact4 Lastname",
+      "title": "Engineering Manager",
+      "email": "contact4@acmecorp.com",
+      "phone": "+1-555-467-6635",
+      "linkedin_url": "https://linkedin.com/in/contact4"
+    },
+    {
+      "ref": "con-005",
+      "account_ref": "acct-002",
+      "name": "Contact5 Lastname",
+      "title": "VP Engineering",
+      "email": "contact5@techwave.io",
+      "phone": "+1-555-847-8527",
+      "linkedin_url": "https://linkedin.com/in/contact5"
+    },
+    {
+      "ref": "con-006",
+      "account_ref": "acct-002",
+      "name": "Contact6 Lastname",
+      "title": "Senior Software Engineer",
+      "email": "contact6@techwave.io",
+      "phone": "+1-555-487-2291",
+      "linkedin_url": "https://linkedin.com/in/contact6"
+    },
+    {
+      "ref": "con-007",
+      "account_ref": "acct-002",
+      "name": "Contact7 Lastname",
+      "title": "Staff Engineer",
+      "email": "contact7@techwave.io",
+      "phone": "+1-555-949-6925",
+      "linkedin_url": "https://linkedin.com/in/contact7"
+    },
+    {
+      "ref": "con-008",
+      "account_ref": "acct-002",
+      "name": "Contact8 Lastname",
+      "title": "Senior Software Engineer",
+      "email": "contact8@techwave.io",
+      "phone": "+1-555-821-2139",
+      "linkedin_url": "https://linkedin.com/in/contact8"
+    },
+    {
+      "ref": "con-009",
+      "account_ref": "acct-003",
+      "name": "Contact9 Lastname",
+      "title": "Staff Engineer",
+      "email": "contact9@devstream.dev",
+      "phone": "+1-555-181-4814",
+      "linkedin_url": "https://linkedin.com/in/contact9"
+    },
+    {
+      "ref": "con-010",
+      "account_ref": "acct-003",
+      "name": "Contact10 Lastname",
+      "title": "Director of Platform",
+      "email": "contact10@devstream.dev",
+      "phone": "+1-555-384-8428",
+      "linkedin_url": "https://linkedin.com/in/contact10"
+    },
+    {
+      "ref": "con-013",
+      "account_ref": "acct-004",
+      "name": "Contact13 Lastname",
+      "title": "Director of Engineering",
+      "email": "contact13@cloudnine.co",
+      "phone": "+1-555-479-6820",
+      "linkedin_url": "https://linkedin.com/in/contact13"
+    },
+    {
+      "ref": "con-014",
+      "account_ref": "acct-004",
+      "name": "Contact14 Lastname",
+      "title": "Principal Engineer",
+      "email": "contact14@cloudnine.co",
+      "phone": "+1-555-373-2169",
+      "linkedin_url": "https://linkedin.com/in/contact14"
+    },
+    {
+      "ref": "con-015",
+      "account_ref": "acct-004",
+      "name": "Contact15 Lastname",
+      "title": "Principal Engineer",
+      "email": "contact15@cloudnine.co",
+      "phone": "+1-555-275-9751",
+      "linkedin_url": "https://linkedin.com/in/contact15"
+    },
+    {
+      "ref": "con-016",
+      "account_ref": "acct-004",
+      "name": "Contact16 Lastname",
+      "title": "Senior Software Engineer",
+      "email": "contact16@cloudnine.co",
+      "phone": "+1-555-573-7216",
+      "linkedin_url": "https://linkedin.com/in/contact16"
+    },
+    {
+      "ref": "con-017",
+      "account_ref": "acct-005",
+      "name": "Contact17 Lastname",
+      "title": "Senior Software Engineer",
+      "email": "contact17@buildfast.ai",
+      "phone": "+1-555-801-6313",
+      "linkedin_url": "https://linkedin.com/in/contact17"
+    },
+    {
+      "ref": "con-018",
+      "account_ref": "acct-005",
+      "name": "Contact18 Lastname",
+      "title": "VP Engineering",
+      "email": "contact18@buildfast.ai",
+      "phone": "+1-555-941-1525",
+      "linkedin_url": "https://linkedin.com/in/contact18"
+    },
+    {
+      "ref": "con-019",
+      "account_ref": "acct-005",
+      "name": "Contact19 Lastname",
+      "title": "Director of Platform",
+      "email": "contact19@buildfast.ai",
+      "phone": "+1-555-374-2084",
+      "linkedin_url": "https://linkedin.com/in/contact19"
+    },
+    {
+      "ref": "con-021",
+      "account_ref": "acct-006",
+      "name": "Contact21 Lastname",
+      "title": "Principal Engineer",
+      "email": "contact21@codeflow.com",
+      "phone": "+1-555-422-4483",
+      "linkedin_url": "https://linkedin.com/in/contact21"
+    },
+    {
+      "ref": "con-022",
+      "account_ref": "acct-006",
+      "name": "Contact22 Lastname",
+      "title": "Staff Engineer",
+      "email": "contact22@codeflow.com",
+      "phone": "+1-555-758-8517",
+      "linkedin_url": "https://linkedin.com/in/contact22"
+    },
+    {
+      "ref": "con-025",
+      "account_ref": "acct-007",
+      "name": "Contact25 Lastname",
+      "title": "VP Engineering",
+      "email": "contact25@stackpush.io",
+      "phone": "+1-555-352-9830",
+      "linkedin_url": "https://linkedin.com/in/contact25"
+    },
+    {
+      "ref": "con-026",
+      "account_ref": "acct-007",
+      "name": "Contact26 Lastname",
+      "title": "VP Developer Experience",
+      "email": "contact26@stackpush.io",
+      "phone": "+1-555-698-8019",
+      "linkedin_url": "https://linkedin.com/in/contact26"
+    },
+    {
+      "ref": "con-029",
+      "account_ref": "acct-008",
+      "name": "Contact29 Lastname",
+      "title": "Senior Engineering Manager",
+      "email": "contact29@deploybot.dev",
+      "phone": "+1-555-324-3266",
+      "linkedin_url": "https://linkedin.com/in/contact29"
+    },
+    {
+      "ref": "con-030",
+      "account_ref": "acct-008",
+      "name": "Contact30 Lastname",
+      "title": "Staff Engineer",
+      "email": "contact30@deploybot.dev",
+      "phone": "+1-555-193-1771",
+      "linkedin_url": "https://linkedin.com/in/contact30"
+    },
+    {
+      "ref": "con-031",
+      "account_ref": "acct-008",
+      "name": "Contact31 Lastname",
+      "title": "Director of Engineering",
+      "email": "contact31@deploybot.dev",
+      "phone": "+1-555-742-3621",
+      "linkedin_url": "https://linkedin.com/in/contact31"
+    },
+    {
+      "ref": "con-032",
+      "account_ref": "acct-008",
+      "name": "Contact32 Lastname",
+      "title": "Tech Lead Manager",
+      "email": "contact32@deploybot.dev",
+      "phone": "+1-555-165-7304",
+      "linkedin_url": "https://linkedin.com/in/contact32"
+    },
+    {
+      "ref": "con-033",
+      "account_ref": "acct-009",
+      "name": "Contact33 Lastname",
+      "title": "Staff Engineer",
+      "email": "contact33@infrascale.co",
+      "phone": "+1-555-641-5119",
+      "linkedin_url": "https://linkedin.com/in/contact33"
+    },
+    {
+      "ref": "con-034",
+      "account_ref": "acct-009",
+      "name": "Contact34 Lastname",
+      "title": "Senior Software Engineer",
+      "email": "contact34@infrascale.co",
+      "phone": "+1-555-796-2876",
+      "linkedin_url": "https://linkedin.com/in/contact34"
+    },
+    {
+      "ref": "con-035",
+      "account_ref": "acct-009",
+      "name": "Contact35 Lastname",
+      "title": "Staff Engineer",
+      "email": "contact35@infrascale.co",
+      "phone": "+1-555-887-6573",
+      "linkedin_url": "https://linkedin.com/in/contact35"
+    },
+    {
+      "ref": "con-037",
+      "account_ref": "acct-010",
+      "name": "Contact37 Lastname",
+      "title": "VP Platform",
+      "email": "contact37@pipelineops.ai",
+      "phone": "+1-555-261-8433",
+      "linkedin_url": "https://linkedin.com/in/contact37"
+    },
+    {
+      "ref": "con-038",
+      "account_ref": "acct-010",
+      "name": "Contact38 Lastname",
+      "title": "VP Developer Experience",
+      "email": "contact38@pipelineops.ai",
+      "phone": "+1-555-996-5315",
+      "linkedin_url": "https://linkedin.com/in/contact38"
+    },
+    {
+      "ref": "con-041",
+      "account_ref": "acct-011",
+      "name": "Contact41 Lastname",
+      "title": "Tech Lead Manager",
+      "email": "contact41@velocityeng.com",
+      "phone": "+1-555-208-5889",
+      "linkedin_url": "https://linkedin.com/in/contact41"
+    },
+    {
+      "ref": "con-042",
+      "account_ref": "acct-011",
+      "name": "Contact42 Lastname",
+      "title": "Principal Engineer",
+      "email": "contact42@velocityeng.com",
+      "phone": "+1-555-303-3504",
+      "linkedin_url": "https://linkedin.com/in/contact42"
+    },
+    {
+      "ref": "con-043",
+      "account_ref": "acct-011",
+      "name": "Contact43 Lastname",
+      "title": "Director of Engineering",
+      "email": "contact43@velocityeng.com",
+      "phone": "+1-555-652-9689",
+      "linkedin_url": "https://linkedin.com/in/contact43"
+    },
+    {
+      "ref": "con-044",
+      "account_ref": "acct-011",
+      "name": "Contact44 Lastname",
+      "title": "VP Developer Experience",
+      "email": "contact44@velocityeng.com",
+      "phone": "+1-555-431-9005",
+      "linkedin_url": "https://linkedin.com/in/contact44"
+    },
+    {
+      "ref": "con-045",
+      "account_ref": "acct-012",
+      "name": "Contact45 Lastname",
+      "title": "Director of Platform",
+      "email": "contact45@shiphero.io",
+      "phone": "+1-555-999-6038",
+      "linkedin_url": "https://linkedin.com/in/contact45"
+    },
+    {
+      "ref": "con-046",
+      "account_ref": "acct-012",
+      "name": "Contact46 Lastname",
+      "title": "Senior Software Engineer",
+      "email": "contact46@shiphero.io",
+      "phone": "+1-555-346-2290",
+      "linkedin_url": "https://linkedin.com/in/contact46"
+    },
+    {
+      "ref": "con-049",
+      "account_ref": "acct-013",
+      "name": "Contact49 Lastname",
+      "title": "Senior Software Engineer",
+      "email": "contact49@testify.dev",
+      "phone": "+1-555-878-9727",
+      "linkedin_url": "https://linkedin.com/in/contact49"
+    },
+    {
+      "ref": "con-050",
+      "account_ref": "acct-013",
+      "name": "Contact50 Lastname",
+      "title": "Engineering Manager",
+      "email": "contact50@testify.dev",
+      "phone": "+1-555-775-8787",
+      "linkedin_url": "https://linkedin.com/in/contact50"
+    },
+    {
+      "ref": "con-053",
+      "account_ref": "acct-014",
+      "name": "Contact53 Lastname",
+      "title": "Senior Engineering Manager",
+      "email": "contact53@cicdpro.co",
+      "phone": "+1-555-640-7932",
+      "linkedin_url": "https://linkedin.com/in/contact53"
+    },
+    {
+      "ref": "con-054",
+      "account_ref": "acct-014",
+      "name": "Contact54 Lastname",
+      "title": "Principal Engineer",
+      "email": "contact54@cicdpro.co",
+      "phone": "+1-555-873-4295",
+      "linkedin_url": "https://linkedin.com/in/contact54"
+    },
+    {
+      "ref": "con-055",
+      "account_ref": "acct-014",
+      "name": "Contact55 Lastname",
+      "title": "VP Platform",
+      "email": "contact55@cicdpro.co",
+      "phone": "+1-555-787-7118",
+      "linkedin_url": "https://linkedin.com/in/contact55"
+    },
+    {
+      "ref": "con-056",
+      "account_ref": "acct-014",
+      "name": "Contact56 Lastname",
+      "title": "Principal Engineer",
+      "email": "contact56@cicdpro.co",
+      "phone": "+1-555-562-2982",
+      "linkedin_url": "https://linkedin.com/in/contact56"
+    },
+    {
+      "ref": "con-057",
+      "account_ref": "acct-015",
+      "name": "Contact57 Lastname",
+      "title": "Senior Software Engineer",
+      "email": "contact57@gitforge.ai",
+      "phone": "+1-555-446-1344",
+      "linkedin_url": "https://linkedin.com/in/contact57"
+    },
+    {
+      "ref": "con-058",
+      "account_ref": "acct-015",
+      "name": "Contact58 Lastname",
+      "title": "Principal Engineer",
+      "email": "contact58@gitforge.ai",
+      "phone": "+1-555-335-4608",
+      "linkedin_url": "https://linkedin.com/in/contact58"
+    },
+    {
+      "ref": "con-061",
+      "account_ref": "acct-016",
+      "name": "Contact61 Lastname",
+      "title": "Engineering Director",
+      "email": "contact61@kubecraft.com",
+      "phone": "+1-555-746-1964",
+      "linkedin_url": "https://linkedin.com/in/contact61"
+    },
+    {
+      "ref": "con-062",
+      "account_ref": "acct-016",
+      "name": "Contact62 Lastname",
+      "title": "Senior Software Engineer",
+      "email": "contact62@kubecraft.com",
+      "phone": "+1-555-132-6413",
+      "linkedin_url": "https://linkedin.com/in/contact62"
+    },
+    {
+      "ref": "con-065",
+      "account_ref": "acct-017",
+      "name": "Contact65 Lastname",
+      "title": "Senior Software Engineer",
+      "email": "contact65@dockerly.io",
+      "phone": "+1-555-385-8953",
+      "linkedin_url": "https://linkedin.com/in/contact65"
+    },
+    {
+      "ref": "con-066",
+      "account_ref": "acct-017",
+      "name": "Contact66 Lastname",
+      "title": "Principal Engineer",
+      "email": "contact66@dockerly.io",
+      "phone": "+1-555-235-8744",
+      "linkedin_url": "https://linkedin.com/in/contact66"
+    },
+    {
+      "ref": "con-069",
+      "account_ref": "acct-018",
+      "name": "Contact69 Lastname",
+      "title": "Staff Engineer",
+      "email": "contact69@terracloud.dev",
+      "phone": "+1-555-294-2545",
+      "linkedin_url": "https://linkedin.com/in/contact69"
+    },
+    {
+      "ref": "con-070",
+      "account_ref": "acct-018",
+      "name": "Contact70 Lastname",
+      "title": "Engineering Director",
+      "email": "contact70@terracloud.dev",
+      "phone": "+1-555-541-6804",
+      "linkedin_url": "https://linkedin.com/in/contact70"
+    },
+    {
+      "ref": "con-073",
+      "account_ref": "acct-019",
+      "name": "Contact73 Lastname",
+      "title": "Senior Engineering Manager",
+      "email": "contact73@helmhub.co",
+      "phone": "+1-555-984-1887",
+      "linkedin_url": "https://linkedin.com/in/contact73"
+    },
+    {
+      "ref": "con-074",
+      "account_ref": "acct-019",
+      "name": "Contact74 Lastname",
+      "title": "Director of Engineering",
+      "email": "contact74@helmhub.co",
+      "phone": "+1-555-512-6559",
+      "linkedin_url": "https://linkedin.com/in/contact74"
+    },
+    {
+      "ref": "con-075",
+      "account_ref": "acct-019",
+      "name": "Contact75 Lastname",
+      "title": "Director of Engineering",
+      "email": "contact75@helmhub.co",
+      "phone": "+1-555-296-4116",
+      "linkedin_url": "https://linkedin.com/in/contact75"
+    },
+    {
+      "ref": "con-077",
+      "account_ref": "acct-020",
+      "name": "Contact77 Lastname",
+      "title": "Senior Software Engineer",
+      "email": "contact77@argoflow.ai",
+      "phone": "+1-555-532-4006",
+      "linkedin_url": "https://linkedin.com/in/contact77"
+    },
+    {
+      "ref": "con-078",
+      "account_ref": "acct-020",
+      "name": "Contact78 Lastname",
+      "title": "VP Platform",
+      "email": "contact78@argoflow.ai",
+      "phone": "+1-555-355-2235",
+      "linkedin_url": "https://linkedin.com/in/contact78"
+    },
+    {
+      "ref": "con-079",
+      "account_ref": "acct-020",
+      "name": "Contact79 Lastname",
+      "title": "Principal Engineer",
+      "email": "contact79@argoflow.ai",
+      "phone": "+1-555-200-1828",
+      "linkedin_url": "https://linkedin.com/in/contact79"
+    },
+    {
+      "ref": "con-080",
+      "account_ref": "acct-020",
+      "name": "Contact80 Lastname",
+      "title": "Senior Software Engineer",
+      "email": "contact80@argoflow.ai",
+      "phone": "+1-555-195-4872",
+      "linkedin_url": "https://linkedin.com/in/contact80"
+    },
+    {
+      "ref": "con-081",
+      "account_ref": "acct-021",
+      "name": "Contact81 Lastname",
+      "title": "Senior Engineering Manager",
+      "email": "contact81@datamesh.com",
+      "phone": "+1-555-592-4502",
+      "linkedin_url": "https://linkedin.com/in/contact81"
+    },
+    {
+      "ref": "con-082",
+      "account_ref": "acct-021",
+      "name": "Contact82 Lastname",
+      "title": "Engineering Manager",
+      "email": "contact82@datamesh.com",
+      "phone": "+1-555-268-7209",
+      "linkedin_url": "https://linkedin.com/in/contact82"
+    },
+    {
+      "ref": "con-085",
+      "account_ref": "acct-022",
+      "name": "Contact85 Lastname",
+      "title": "Senior Engineering Manager",
+      "email": "contact85@mlpipe.io",
+      "phone": "+1-555-902-8454",
+      "linkedin_url": "https://linkedin.com/in/contact85"
+    }
+  ],
+  "tasks": [
+    {
+      "ref": "task-001",
+      "account_ref": "acct-008",
+      "subject": "Schedule call",
+      "due_date": "2026-06-21",
+      "status": "open"
+    },
+    {
+      "ref": "task-002",
+      "account_ref": "acct-005",
+      "subject": "Schedule call",
+      "due_date": "2026-06-22",
+      "status": "open"
+    },
+    {
+      "ref": "task-003",
+      "account_ref": "acct-011",
+      "subject": "Follow up on demo",
+      "due_date": "2026-06-15",
+      "status": "open"
+    },
+    {
+      "ref": "task-004",
+      "account_ref": "acct-015",
+      "subject": "Follow up on demo",
+      "due_date": "2026-06-16",
+      "status": "open"
+    },
+    {
+      "ref": "task-005",
+      "account_ref": "acct-018",
+      "subject": "Send case study",
+      "due_date": "2026-06-23",
+      "status": "open"
+    },
+    {
+      "ref": "task-006",
+      "account_ref": "acct-009",
+      "subject": "Send case study",
+      "due_date": "2026-06-29",
+      "status": "open"
+    },
+    {
+      "ref": "task-007",
+      "account_ref": "acct-012",
+      "subject": "Follow up on demo",
+      "due_date": "2026-06-29",
+      "status": "open"
+    },
+    {
+      "ref": "task-008",
+      "account_ref": "acct-008",
+      "subject": "Schedule call",
+      "due_date": "2026-06-19",
+      "status": "open"
+    },
+    {
+      "ref": "task-009",
+      "account_ref": "acct-006",
+      "subject": "Review proposal",
+      "due_date": "2026-06-28",
+      "status": "open"
+    },
+    {
+      "ref": "task-010",
+      "account_ref": "acct-018",
+      "subject": "Schedule call",
+      "due_date": "2026-06-24",
+      "status": "open"
+    },
+    {
+      "ref": "task-011",
+      "account_ref": "acct-021",
+      "subject": "Follow up on demo",
+      "due_date": "2026-06-25",
+      "status": "open"
+    },
+    {
+      "ref": "task-012",
+      "account_ref": "acct-018",
+      "subject": "Schedule call",
+      "due_date": "2026-06-29",
+      "status": "open"
+    },
+    {
+      "ref": "task-013",
+      "account_ref": "acct-022",
+      "subject": "Follow up on demo",
+      "due_date": "2026-06-29",
+      "status": "open"
+    },
+    {
+      "ref": "task-014",
+      "account_ref": "acct-005",
+      "subject": "Schedule call",
+      "due_date": "2026-06-16",
+      "status": "open"
+    },
+    {
+      "ref": "task-015",
+      "account_ref": "acct-004",
+      "subject": "Send case study",
+      "due_date": "2026-06-19",
+      "status": "open"
+    },
+    {
+      "ref": "task-016",
+      "account_ref": "acct-010",
+      "subject": "Send case study",
+      "due_date": "2026-06-26",
+      "status": "open"
+    },
+    {
+      "ref": "task-017",
+      "account_ref": "acct-011",
+      "subject": "Send case study",
+      "due_date": "2026-06-25",
+      "status": "open"
+    },
+    {
+      "ref": "task-018",
+      "account_ref": "acct-021",
+      "subject": "Schedule call",
+      "due_date": "2026-06-23",
+      "status": "open"
+    },
+    {
+      "ref": "task-019",
+      "account_ref": "acct-016",
+      "subject": "Schedule call",
+      "due_date": "2026-06-29",
+      "status": "open"
+    },
+    {
+      "ref": "task-020",
+      "account_ref": "acct-002",
+      "subject": "Follow up on demo",
+      "due_date": "2026-06-25",
+      "status": "open"
+    }
+  ]
+}

@@ -1,0 +1,143 @@
+{
+  "events": [
+    {
+      "ref": "cal-001",
+      "title": "Devin Demo \u2014 Account 1",
+      "start": "2026-06-21T13:00:00",
+      "end": "2026-06-21T13:30:00",
+      "attendees": [
+        {
+          "email": "contact1@example.com",
+          "response_status": "accepted"
+        },
+        {
+          "email": "malay@example.com",
+          "response_status": "accepted"
+        }
+      ],
+      "body": "Demo: how Devin handles a real ticket from your backlog.",
+      "meeting_link": "https://meet.example.com/demo-1"
+    },
+    {
+      "ref": "cal-002",
+      "title": "Devin Demo \u2014 Account 2",
+      "start": "2026-06-14T15:00:00",
+      "end": "2026-06-14T15:30:00",
+      "attendees": [
+        {
+          "email": "contact2@example.com",
+          "response_status": "accepted"
+        },
+        {
+          "email": "malay@example.com",
+          "response_status": "accepted"
+        }
+      ],
+      "body": "Demo: how Devin handles a real ticket from your backlog.",
+      "meeting_link": "https://meet.example.com/demo-2"
+    },
+    {
+      "ref": "cal-003",
+      "title": "Devin Demo \u2014 Account 3",
+      "start": "2026-06-19T14:00:00",
+      "end": "2026-06-19T14:30:00",
+      "attendees": [
+        {
+          "email": "contact3@example.com",
+          "response_status": "accepted"
+        },
+        {
+          "email": "malay@example.com",
+          "response_status": "accepted"
+        }
+      ],
+      "body": "Demo: how Devin handles a real ticket from your backlog.",
+      "meeting_link": "https://meet.example.com/demo-3"
+    },
+    {
+      "ref": "cal-004",
+      "title": "Devin Demo \u2014 Account 4",
+      "start": "2026-06-09T10:00:00",
+      "end": "2026-06-09T10:30:00",
+      "attendees": [
+        {
+          "email": "contact4@example.com",
+          "response_status": "accepted"
+        },
+        {
+          "email": "malay@example.com",
+          "response_status": "accepted"
+        }
+      ],
+      "body": "Demo: how Devin handles a real ticket from your backlog.",
+      "meeting_link": "https://meet.example.com/demo-4"
+    },
+    {
+      "ref": "cal-005",
+      "title": "Devin Demo \u2014 Account 5",
+      "start": "2026-06-13T11:00:00",
+      "end": "2026-06-13T11:30:00",
+      "attendees": [
+        {
+          "email": "contact5@example.com",
+          "response_status": "needsAction"
+        },
+        {
+          "email": "malay@example.com",
+          "response_status": "accepted"
+        }
+      ],
+      "body": "Demo: how Devin handles a real ticket from your backlog.",
+      "meeting_link": "https://meet.example.com/demo-5"
+    }
+  ],
+  "slots": [
+    {
+      "start": "2026-06-09T14:00:00",
+      "end": "2026-06-09T14:30:00",
+      "days_out": 0,
+      "pull_in_candidate": false
+    },
+    {
+      "start": "2026-06-10T12:00:00",
+      "end": "2026-06-10T12:30:00",
+      "days_out": 1,
+      "pull_in_candidate": false
+    },
+    {
+      "start": "2026-06-11T10:00:00",
+      "end": "2026-06-11T10:30:00",
+      "days_out": 2,
+      "pull_in_candidate": false
+    },
+    {
+      "start": "2026-06-12T10:00:00",
+      "end": "2026-06-12T10:30:00",
+      "days_out": 3,
+      "pull_in_candidate": false
+    },
+    {
+      "start": "2026-06-13T14:00:00",
+      "end": "2026-06-13T14:30:00",
+      "days_out": 4,
+      "pull_in_candidate": false
+    },
+    {
+      "start": "2026-06-14T12:00:00",
+      "end": "2026-06-14T12:30:00",
+      "days_out": 5,
+      "pull_in_candidate": true
+    },
+    {
+      "start": "2026-06-15T12:00:00",
+      "end": "2026-06-15T12:30:00",
+      "days_out": 6,
+      "pull_in_candidate": true
+    }
+  ],
+  "capacity": {
+    "business_days": 22,
+    "pto_dates": [],
+    "blocked_hours": 0
+  }
+}
