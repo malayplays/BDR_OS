@@ -1,0 +1,30 @@
+# Value Propositions — Cognition / Devin / Windsurf Positioning
+# [CONFIRM WEEK 1 — sales-approved messaging]
+
+products:
+  devin:
+    tagline: "[CONFIRM WEEK 1]"
+    value_props:
+      - headline: "[CONFIRM WEEK 1]"
+        detail: "[CONFIRM WEEK 1]"
+      - headline: "[CONFIRM WEEK 1]"
+        detail: "[CONFIRM WEEK 1]"
+    objection_handles:
+      copilot_comparison: "[CONFIRM WEEK 1 — ticket-delegation vs autocomplete framing]"
+      cost_concern: "[CONFIRM WEEK 1]"
+      security: "[CONFIRM WEEK 1]"
+
+  windsurf:
+    tagline: "[CONFIRM WEEK 1]"
+    value_props:
+      - headline: "[CONFIRM WEEK 1]"
+        detail: "[CONFIRM WEEK 1]"
+
+three_whys:
+  anything: "[CONFIRM WEEK 1 — why anything at all]"
+  now: "[CONFIRM WEEK 1 — why now, signal-anchored]"
+  windsurf_devin: "[CONFIRM WEEK 1 — why us specifically]"
+
+social_proof:
+  - company: "[CONFIRM WEEK 1]"
+    result: "[CONFIRM WEEK 1]"

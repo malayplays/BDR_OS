@@ -1,0 +1,141 @@
+{
+  "calls": [
+    {
+      "ref": "call-001",
+      "account_ref": "acct-001",
+      "contact_ref": "con-001",
+      "title": "Good discovery call",
+      "occurred_at": "2026-06-05T00:00:00",
+      "duration_seconds": 336
+    },
+    {
+      "ref": "call-002",
+      "account_ref": "acct-002",
+      "contact_ref": "con-002",
+      "title": "Objection-heavy call",
+      "occurred_at": "2026-06-08T00:00:00",
+      "duration_seconds": 610
+    },
+    {
+      "ref": "call-003",
+      "account_ref": "acct-003",
+      "contact_ref": "con-003",
+      "title": "No-show rescheduled call",
+      "occurred_at": "2026-06-11T00:00:00",
+      "duration_seconds": 668
+    }
+  ],
+  "transcripts": [
+    {
+      "call_ref": "call-001",
+      "segments": [
+        {
+          "speaker": "rep",
+          "text": "Thanks for joining. I saw your team just raised Series B \u2014 congrats.",
+          "start_seconds": 0.0,
+          "end_seconds": 4.1
+        },
+        {
+          "speaker": "prospect",
+          "text": "Thanks! Yeah, we're hiring like crazy right now.",
+          "start_seconds": 5.6,
+          "end_seconds": 8.5
+        },
+        {
+          "speaker": "rep",
+          "text": "That's usually when onboarding becomes a bottleneck. How are you handling new eng ramp-up?",
+          "start_seconds": 9.1,
+          "end_seconds": 14.5
+        },
+        {
+          "speaker": "prospect",
+          "text": "It's painful honestly. Seniors spend weeks onboarding each new hire.",
+          "start_seconds": 15.6,
+          "end_seconds": 19.7
+        },
+        {
+          "speaker": "rep",
+          "text": "That's exactly what Devin helps with. Can I show you a quick example?",
+          "start_seconds": 21.0,
+          "end_seconds": 25.2
+        },
+        {
+          "speaker": "prospect",
+          "text": "Sure, that'd be useful.",
+          "start_seconds": 26.3,
+          "end_seconds": 27.7
+        }
+      ]
+    },
+    {
+      "call_ref": "call-002",
+      "segments": [
+        {
+          "speaker": "rep",
+          "text": "Appreciate you taking the time. How's your team thinking about developer productivity?",
+          "start_seconds": 0.0,
+          "end_seconds": 5.2
+        },
+        {
+          "speaker": "prospect",
+          "text": "We already have Copilot Enterprise. Not sure we need another tool.",
+          "start_seconds": 6.2,
+          "end_seconds": 10.2
+        },
+        {
+          "speaker": "rep",
+          "text": "Totally fair. Copilot is great for autocomplete. Devin is different \u2014 it takes a whole ticket.",
+          "start_seconds": 11.9,
+          "end_seconds": 17.5
+        },
+        {
+          "speaker": "prospect",
+          "text": "I don't know, our devs are pretty set in their ways.",
+          "start_seconds": 19.4,
+          "end_seconds": 22.5
+        },
+        {
+          "speaker": "rep",
+          "text": "What if I showed you a side-by-side on one of your real tickets?",
+          "start_seconds": 23.1,
+          "end_seconds": 26.9
+        },
+        {
+          "speaker": "prospect",
+          "text": "Maybe. Send me something and I'll look at it.",
+          "start_seconds": 28.7,
+          "end_seconds": 31.4
+        }
+      ]
+    },
+    {
+      "call_ref": "call-003",
+      "segments": [
+        {
+          "speaker": "rep",
+          "text": "Hi \u2014 we had you on the calendar for 2pm, wanted to check in.",
+          "start_seconds": 0.0,
+          "end_seconds": 3.6
+        },
+        {
+          "speaker": "prospect",
+          "text": "Oh man, I'm so sorry. Got pulled into a fire drill.",
+          "start_seconds": 4.1,
+          "end_seconds": 7.2
+        },
+        {
+          "speaker": "rep",
+          "text": "No worries at all. How's Thursday at the same time?",
+          "start_seconds": 8.2,
+          "end_seconds": 11.3
+        },
+        {
+          "speaker": "prospect",
+          "text": "Thursday works. Sorry again.",
+          "start_seconds": 12.9,
+          "end_seconds": 14.6
+        }
+      ]
+    }
+  ]
+}
