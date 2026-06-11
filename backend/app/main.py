@@ -1,10 +1,13 @@
 import os
+from pathlib import Path
 
 from dotenv import load_dotenv
 
 load_dotenv()
 
-from fastapi import FastAPI  # noqa: E402
+from fastapi import FastAPI, Request  # noqa: E402
+from fastapi.responses import HTMLResponse  # noqa: E402
+from fastapi.templating import Jinja2Templates  # noqa: E402
 
 from app.api.routes import router  # noqa: E402
 from app.database import engine  # noqa: E402
@@ -14,11 +17,19 @@ app = FastAPI(title="BDR OS", version="0.1.0")
 
 app.include_router(router)
 
-# DEBUG ONLY — mount simulation endpoints when DEBUG_DASHBOARD=true
+# DEBUG ONLY — mount simulation endpoints and /debug dashboard when DEBUG_DASHBOARD=true
+_templates_dir = Path(__file__).resolve().parent / "templates"
+_templates = Jinja2Templates(directory=str(_templates_dir))
+
+
 if os.getenv("DEBUG_DASHBOARD", "").lower() == "true":
     from app.api.debug_sim import router as debug_sim_router  # noqa: E402
 
     app.include_router(debug_sim_router)
+
+    @app.get("/debug", response_class=HTMLResponse)
+    def debug_dashboard(request: Request):
+        return _templates.TemplateResponse(request=request, name="debug.html")
 
 
 @app.on_event("startup")

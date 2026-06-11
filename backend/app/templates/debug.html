@@ -1,0 +1,906 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>BDR OS — Test Cockpit</title>
+<style>
+:root {
+  --bg:#f7f7f8; --card:#ffffff; --border:#e4e4e7; --text:#18181b; --muted:#71717a;
+  --create:#475569; --convert:#d97706; --hold:#dc2626; --ok:#16a34a;
+  --accent:#2563eb; --radius:10px; --shadow:0 1px 3px rgba(0,0,0,.06);
+  font: 14px/1.5 -apple-system, "Segoe UI", sans-serif;
+}
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+body { background: var(--bg); color: var(--text); min-height: 100vh; }
+
+/* ── Layout ── */
+.shell { max-width: 1100px; margin: 0 auto; padding: 0 16px; }
+.topbar {
+  position: sticky; top: 0; z-index: 100; background: var(--card);
+  border-bottom: 1px solid var(--border); box-shadow: var(--shadow);
+}
+.topbar-inner {
+  max-width: 1100px; margin: 0 auto; padding: 10px 16px;
+  display: flex; align-items: center; gap: 16px; flex-wrap: wrap;
+}
+.topbar-brand { font-weight: 600; font-size: 15px; white-space: nowrap; }
+.topbar-tabs { display: flex; gap: 4px; margin: 0 auto; }
+.topbar-tabs button {
+  background: none; border: none; padding: 6px 14px; cursor: pointer;
+  font-size: 13px; color: var(--muted); border-bottom: 2px solid transparent;
+  transition: color .15s, border-color .15s;
+}
+.topbar-tabs button.active { color: var(--accent); border-bottom-color: var(--accent); }
+.topbar-tabs button:hover { color: var(--text); }
+.topbar-right { display: flex; align-items: center; gap: 12px; font-size: 12px; white-space: nowrap; }
+.points-chip {
+  background: var(--bg); border: 1px solid var(--border); border-radius: 6px;
+  padding: 3px 8px; font-weight: 500;
+}
+.refresh-btn {
+  background: var(--accent); color: #fff; border: none; border-radius: 6px;
+  padding: 4px 10px; font-size: 12px; cursor: pointer;
+}
+.refresh-btn:hover { opacity: .85; }
+
+/* ── Event Ticker ── */
+.ticker {
+  max-width: 1100px; margin: 0 auto; padding: 4px 16px;
+  font-family: ui-monospace, "SF Mono", monospace; font-size: 12px;
+  color: var(--muted); border-bottom: 1px solid var(--border);
+  background: var(--card); overflow: hidden; text-overflow: ellipsis; white-space: nowrap;
+  transition: background .3s;
+}
+.ticker.flash { background: #eff6ff; }
+
+/* ── Tab content ── */
+.tab-content { display: none; padding: 16px 0; }
+.tab-content.active { display: block; }
+
+/* ── Cards / shared ── */
+.card {
+  background: var(--card); border: 1px solid var(--border);
+  border-radius: var(--radius); padding: 16px; box-shadow: var(--shadow);
+}
+.stat-row { display: grid; grid-template-columns: repeat(4, 1fr); gap: 12px; margin-bottom: 16px; }
+.stat-card { text-align: center; }
+.stat-card .label { font-size: 11px; text-transform: uppercase; color: var(--muted); margin-bottom: 4px; }
+.stat-card .value { font-size: 18px; font-weight: 600; }
+
+/* ── Job list (Today) ── */
+.job-list { display: flex; flex-direction: column; gap: 8px; }
+.job-card {
+  display: flex; align-items: center; gap: 12px; padding: 12px 16px;
+  background: var(--card); border: 1px solid var(--border); border-radius: var(--radius);
+  box-shadow: var(--shadow); position: relative;
+}
+.job-card .stage-bar { width: 3px; align-self: stretch; border-radius: 2px; flex-shrink: 0; }
+.job-card .stage-bar.create { background: var(--create); }
+.job-card .stage-bar.convert { background: var(--convert); }
+.job-card .stage-bar.hold { background: var(--hold); }
+.stage-badge {
+  font-size: 11px; text-transform: uppercase; padding: 2px 8px;
+  border-radius: 4px; font-weight: 500; flex-shrink: 0;
+}
+.stage-badge.create { color: var(--create); background: rgba(71,85,105,.12); }
+.stage-badge.convert { color: var(--convert); background: rgba(217,119,6,.12); }
+.stage-badge.hold { color: var(--hold); background: rgba(220,38,38,.12); }
+.job-type { font-weight: 600; font-size: 13px; }
+.job-account { color: var(--muted); font-size: 12px; }
+.persona-pill {
+  font-size: 10px; padding: 2px 6px; border-radius: 4px;
+  text-transform: uppercase; font-weight: 500; flex-shrink: 0;
+}
+.persona-pill.c-suite { background: rgba(124,58,237,.12); color: #7c3aed; }
+.persona-pill.vp { background: rgba(37,99,235,.12); color: #2563eb; }
+.persona-pill.director { background: rgba(13,148,136,.12); color: #0d9488; }
+.persona-pill.manager { background: rgba(113,113,122,.12); color: var(--muted); }
+.persona-pill.ic { background: rgba(212,212,216,.2); color: #a1a1aa; }
+.job-points { font-weight: 600; font-size: 13px; white-space: nowrap; }
+.job-points.high { color: var(--ok); }
+.job-actions { display: flex; gap: 6px; margin-left: auto; flex-shrink: 0; }
+.btn-ghost {
+  background: none; border: 1px solid var(--border); border-radius: 6px;
+  padding: 4px 10px; font-size: 11px; cursor: pointer; color: var(--muted);
+}
+.btn-ghost:hover { border-color: var(--muted); color: var(--text); }
+.sla-badge { font-size: 11px; color: var(--hold); font-weight: 600; white-space: nowrap; }
+.manual-pill {
+  font-size: 10px; padding: 2px 6px; border: 1px solid var(--hold);
+  border-radius: 4px; color: var(--hold); font-weight: 500;
+}
+.empty-state { text-align: center; color: var(--muted); padding: 48px 16px; }
+
+/* ── Queue tab ── */
+.queue-layout { display: flex; gap: 12px; min-height: 500px; }
+.queue-sidebar {
+  width: 220px; flex-shrink: 0; background: var(--card); border: 1px solid var(--border);
+  border-radius: var(--radius); overflow-y: auto; max-height: 70vh;
+}
+.queue-sidebar .group-item {
+  padding: 10px 12px; cursor: pointer; border-bottom: 1px solid var(--border);
+  font-size: 13px; display: flex; justify-content: space-between; align-items: center;
+}
+.queue-sidebar .group-item:hover { background: var(--bg); }
+.queue-sidebar .group-item.active { background: #eff6ff; border-left: 3px solid var(--accent); }
+.queue-sidebar .group-count { font-size: 11px; color: var(--muted); }
+.queue-sidebar .sla-dot { width: 6px; height: 6px; border-radius: 50%; background: var(--convert); display: inline-block; margin-right: 4px; }
+.queue-main { flex: 1; display: flex; flex-direction: column; gap: 12px; }
+.queue-banner {
+  font-size: 12px; color: var(--muted); padding: 8px 12px;
+  border-left: 3px solid var(--accent); background: var(--card);
+  border-radius: 0 var(--radius) var(--radius) 0;
+}
+.queue-header { display: flex; align-items: center; gap: 10px; flex-wrap: wrap; }
+.queue-header .trigger { font-size: 12px; color: var(--muted); }
+.queue-header .ev { font-size: 13px; font-weight: 600; color: var(--ok); }
+.draft-pane {
+  background: var(--card); border: 1px solid var(--border);
+  border-radius: var(--radius); padding: 16px;
+}
+.draft-subject { font-weight: 700; font-size: 14px; margin-bottom: 8px; }
+.draft-body { font-family: Georgia, "Times New Roman", serif; font-size: 15px; line-height: 1.6; white-space: pre-wrap; }
+.variant-tabs { display: flex; gap: 4px; margin-bottom: 8px; }
+.variant-tabs button {
+  background: none; border: 1px solid var(--border); border-radius: 4px;
+  padding: 3px 10px; font-size: 11px; cursor: pointer; color: var(--muted);
+}
+.variant-tabs button.active { background: var(--accent); color: #fff; border-color: var(--accent); }
+.variant-rationale { font-size: 12px; color: var(--muted); font-style: italic; margin-top: 6px; }
+.recovery-sequence { display: flex; flex-direction: column; gap: 8px; margin-top: 12px; }
+.recovery-touch { padding: 8px 12px; background: var(--bg); border-radius: 6px; font-size: 12px; }
+.recovery-touch .day-label { font-weight: 600; color: var(--text); margin-bottom: 2px; }
+.policy-banner {
+  background: rgba(217,119,6,.08); border: 1px solid var(--convert);
+  border-radius: 6px; padding: 8px 12px; font-size: 12px; color: var(--convert);
+  margin-top: 8px;
+}
+.action-bar {
+  position: sticky; bottom: 0; background: var(--card); border-top: 1px solid var(--border);
+  padding: 12px 16px; display: flex; gap: 8px; align-items: center;
+  border-radius: 0 0 var(--radius) var(--radius);
+}
+.btn-approve {
+  background: var(--accent); color: #fff; border: none; border-radius: 6px;
+  padding: 8px 18px; font-size: 13px; font-weight: 500; cursor: pointer;
+}
+.btn-approve:hover { opacity: .85; }
+.btn-reject {
+  background: none; border: 1px solid var(--hold); color: var(--hold);
+  border-radius: 6px; padding: 8px 14px; font-size: 13px; cursor: pointer;
+}
+.btn-reject:hover { background: rgba(220,38,38,.05); }
+.btn-skip {
+  background: none; border: 1px solid var(--border); color: var(--muted);
+  border-radius: 6px; padding: 8px 14px; font-size: 13px; cursor: pointer;
+}
+.btn-skip:hover { border-color: var(--muted); color: var(--text); }
+.reject-input {
+  display: none; flex: 1; border: 1px solid var(--hold); border-radius: 6px;
+  padding: 6px 10px; font-size: 12px; outline: none;
+}
+.reject-input.show { display: block; }
+.kbd { font-size: 10px; color: var(--muted); margin-left: 4px; background: var(--bg); padding: 1px 4px; border-radius: 3px; }
+
+/* ── Pace tab ── */
+.pace-section { margin-bottom: 16px; }
+.pace-heading { font-size: 13px; text-transform: uppercase; color: var(--muted); margin-bottom: 8px; font-weight: 600; letter-spacing: .5px; }
+.goal-bar-wrap { height: 24px; background: var(--bg); border-radius: 6px; position: relative; overflow: hidden; }
+.goal-bar-credited { height: 100%; background: var(--accent); position: absolute; left: 0; top: 0; }
+.goal-bar-pending {
+  height: 100%; position: absolute; top: 0; opacity: .4;
+  background: repeating-linear-gradient(45deg, var(--accent), var(--accent) 4px, transparent 4px, transparent 8px);
+}
+.goal-target-tick { position: absolute; top: 0; height: 100%; width: 2px; background: var(--text); }
+.goal-caption { font-size: 12px; color: var(--muted); margin-top: 6px; }
+.pace-negative { color: var(--hold); }
+.pace-positive { color: var(--ok); }
+.funnel-cols { display: grid; grid-template-columns: repeat(6, 1fr); gap: 8px; }
+.funnel-col { text-align: center; padding: 12px 4px; background: var(--bg); border-radius: 6px; }
+.funnel-col .num { font-size: 22px; font-weight: 600; }
+.funnel-col .lbl { font-size: 11px; color: var(--muted); }
+.funnel-col .exp { font-size: 10px; color: var(--muted); }
+.funnel-col.red .lbl { color: var(--hold); }
+.rates-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(160px, 1fr)); gap: 8px; }
+.rate-tile { padding: 12px; background: var(--bg); border-radius: 6px; }
+.rate-tile .name { font-size: 11px; color: var(--muted); margin-bottom: 4px; }
+.rate-tile .pct { font-size: 24px; font-weight: 600; }
+.rate-tile .meta { font-size: 10px; color: var(--muted); display: flex; gap: 6px; align-items: center; }
+.confidence-pill { font-size: 9px; padding: 1px 5px; border-radius: 3px; text-transform: uppercase; }
+.confidence-pill.low { background: rgba(113,113,122,.15); color: var(--muted); }
+.confidence-pill.medium { background: rgba(37,99,235,.12); color: var(--accent); }
+.confidence-pill.high { background: rgba(22,163,106,.12); color: var(--ok); }
+.drift-arrow { font-weight: 600; font-size: 11px; }
+.drift-arrow.bad { color: var(--hold); }
+.drift-arrow.ok { color: var(--muted); }
+.earnings-row { display: flex; gap: 16px; flex-wrap: wrap; }
+.earnings-left, .earnings-right { flex: 1; min-width: 280px; }
+.earnings-big { font-size: 24px; font-weight: 600; }
+.earnings-breakdown { font-size: 12px; color: var(--muted); margin-top: 4px; }
+.bullet-bar-wrap { height: 10px; background: var(--bg); border-radius: 4px; margin-top: 8px; position: relative; }
+.bullet-bar-fill { height: 100%; background: var(--accent); border-radius: 4px; }
+.bullet-bar-target { position: absolute; top: -2px; height: 14px; width: 2px; background: var(--text); }
+.promo-dots { display: flex; gap: 4px; margin-bottom: 6px; }
+.promo-dot { width: 12px; height: 12px; border-radius: 50%; border: 2px solid var(--border); }
+.promo-dot.filled { background: var(--accent); border-color: var(--accent); }
+.promo-stat { font-size: 12px; color: var(--muted); }
+.promo-status { font-size: 13px; font-weight: 500; margin-top: 4px; }
+
+/* ── Simulate tab ── */
+.sim-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; }
+.sim-btn {
+  display: flex; flex-direction: column; gap: 4px; padding: 16px;
+  background: var(--card); border: 1px solid var(--border); border-radius: var(--radius);
+  cursor: pointer; text-align: left; box-shadow: var(--shadow); transition: border-color .15s;
+}
+.sim-btn:hover { border-color: var(--accent); }
+.sim-btn .sim-title { font-weight: 600; font-size: 14px; }
+.sim-btn .sim-caption { font-size: 11px; color: var(--muted); }
+.sim-btn.reset { border-color: var(--hold); color: var(--hold); grid-column: 1 / -1; }
+.sim-btn.reset:hover { background: rgba(220,38,38,.04); }
+.sim-inline { display: flex; gap: 8px; align-items: center; margin-top: 4px; }
+.sim-inline select, .sim-inline input {
+  font-size: 12px; padding: 3px 8px; border: 1px solid var(--border);
+  border-radius: 4px; background: var(--bg);
+}
+.sim-inline input { width: 50px; }
+.guided-btn {
+  grid-column: 1 / -1; background: var(--accent); color: #fff;
+  border: none; border-radius: var(--radius); padding: 14px;
+  font-size: 14px; font-weight: 600; cursor: pointer; text-align: center;
+}
+.guided-btn:hover { opacity: .85; }
+
+/* ── Toast ── */
+.toast-container { position: fixed; bottom: 16px; right: 16px; z-index: 9999; display: flex; flex-direction: column; gap: 8px; }
+.toast {
+  background: var(--card); border: 1px solid var(--border); border-radius: 6px;
+  padding: 10px 16px; font-size: 12px; box-shadow: 0 4px 12px rgba(0,0,0,.1);
+  animation: slideIn .2s ease; max-width: 320px;
+}
+.toast.error { border-color: var(--hold); color: var(--hold); }
+@keyframes slideIn { from { transform: translateX(20px); opacity: 0; } to { transform: translateX(0); opacity: 1; } }
+</style>
+</head>
+<body>
+
+<!-- Top Bar -->
+<div class="topbar">
+  <div class="topbar-inner">
+    <div class="topbar-brand">BDR OS — Test Cockpit</div>
+    <div class="topbar-tabs">
+      <button data-tab="today" class="active">Today</button>
+      <button data-tab="queue">Queue</button>
+      <button data-tab="pace">Pace</button>
+      <button data-tab="simulate">Simulate</button>
+    </div>
+    <div class="topbar-right">
+      <span class="points-chip" id="points-chip">...</span>
+      <span id="clock-display">--:--</span>
+      <button class="refresh-btn" id="refresh-btn">Refresh</button>
+    </div>
+  </div>
+  <div class="ticker" id="ticker">—</div>
+</div>
+
+<!-- Content -->
+<div class="shell">
+
+  <!-- Today Tab -->
+  <div class="tab-content active" id="tab-today">
+    <div class="stat-row" id="today-stats"></div>
+    <div class="job-list" id="today-jobs"></div>
+  </div>
+
+  <!-- Queue Tab -->
+  <div class="tab-content" id="tab-queue">
+    <div class="queue-banner">Draft-only mode — approving creates drafts, nothing sends.</div>
+    <div class="queue-layout">
+      <div class="queue-sidebar" id="queue-sidebar"></div>
+      <div class="queue-main" id="queue-main">
+        <div class="empty-state">Select an item from the queue.</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Pace Tab -->
+  <div class="tab-content" id="tab-pace">
+    <div class="pace-section card" id="pace-goal"></div>
+    <div class="pace-section card" id="pace-funnel"></div>
+    <div class="pace-section card" id="pace-rates"></div>
+    <div class="pace-section card" id="pace-earnings"></div>
+  </div>
+
+  <!-- Simulate Tab -->
+  <div class="tab-content" id="tab-simulate">
+    <div class="sim-grid" id="sim-grid"></div>
+  </div>
+
+</div>
+
+<div class="toast-container" id="toast-container"></div>
+
+<script>
+/* ── App State ── */
+const App = { data: {}, tab: "today" };
+
+/* ── Helpers ── */
+async function fetchJSON(url, opts = {}) {
+  try {
+    const res = await fetch(url, { headers: { "Content-Type": "application/json" }, ...opts });
+    if (!res.ok) throw new Error(`${res.status} ${res.statusText}`);
+    return await res.json();
+  } catch (e) {
+    showToast(e.message, true);
+    return null;
+  }
+}
+
+function showToast(msg, isError = false) {
+  const c = document.getElementById("toast-container");
+  const t = document.createElement("div");
+  t.className = "toast" + (isError ? " error" : "");
+  t.textContent = msg;
+  c.appendChild(t);
+  setTimeout(() => t.remove(), 4000);
+}
+
+function switchTab(tab) {
+  App.tab = tab;
+  document.querySelectorAll(".topbar-tabs button").forEach(b => b.classList.toggle("active", b.dataset.tab === tab));
+  document.querySelectorAll(".tab-content").forEach(el => el.classList.toggle("active", el.id === "tab-" + tab));
+  refreshCurrentTab();
+}
+
+async function refreshCurrentTab() {
+  if (App.tab === "today") await loadToday();
+  else if (App.tab === "queue") await loadQueue();
+  else if (App.tab === "pace") await loadPace();
+  await loadSimState();
+}
+
+async function refreshAll() {
+  await Promise.all([loadToday(), loadQueue(), loadPace(), loadSimState()]);
+}
+
+/* ── Ticker + Points ── */
+async function loadSimState() {
+  const d = await fetchJSON("/api/sim/state");
+  if (!d) return;
+  App.data.simState = d;
+  const ticker = document.getElementById("ticker");
+  if (d.last_5_events && d.last_5_events.length > 0) {
+    const e = d.last_5_events[0];
+    const t = e.occurred_at ? new Date(e.occurred_at).toLocaleTimeString([], { hour: "2-digit", minute: "2-digit" }) : "--:--";
+    ticker.textContent = `${t} \u00b7 ${e.event_type || "—"} \u00b7 ${e.account_ref || "—"} \u00b7 ${e.contact_ref || "—"}`;
+  }
+  if (d.fake_clock_now) {
+    document.getElementById("clock-display").textContent = new Date(d.fake_clock_now).toLocaleTimeString([], { hour: "2-digit", minute: "2-digit" });
+  }
+}
+
+function flashTicker() {
+  const t = document.getElementById("ticker");
+  t.classList.add("flash");
+  setTimeout(() => t.classList.remove("flash"), 600);
+}
+
+/* ── Today Tab ── */
+async function loadToday() {
+  const d = await fetchJSON("/api/today");
+  if (!d) return;
+  App.data.today = d;
+  renderTodayStats(d);
+  renderTodayJobs(d.jobs || []);
+  updatePointsChip(d);
+}
+
+function renderTodayStats(d) {
+  const plan = d.plan || {};
+  const stats = [
+    { label: "Touches left today", value: formatTouches(plan.daily_allocation) },
+    { label: "Call block", value: plan.next_call_block || "—" },
+    { label: "Confirmations due", value: plan.confirmations_due ?? "—" },
+    { label: "Bottleneck", value: plan.bottleneck || "—" }
+  ];
+  const el = document.getElementById("today-stats");
+  el.innerHTML = stats.map(s => `
+    <div class="card stat-card">
+      <div class="label">${s.label}</div>
+      <div class="value" title="${escHtml(String(s.value))}">${truncate(String(s.value), 80)}</div>
+    </div>
+  `).join("");
+}
+
+function formatTouches(alloc) {
+  if (!alloc) return "—";
+  const e = alloc.email ?? 0, c = alloc.call ?? 0, l = alloc.linkedin ?? 0;
+  return `\u2709 ${e} \u00b7 \u260e ${c} \u00b7 in ${l}`;
+}
+
+function renderTodayJobs(jobs) {
+  const el = document.getElementById("today-jobs");
+  if (!jobs.length) { el.innerHTML = '<div class="empty-state">No jobs — run the morning plan or simulate events.</div>'; return; }
+  // Sort: convert-stage with due_at pinned to top
+  jobs.sort((a, b) => {
+    const aPin = (a.funnel_stage === "convert" && a.due_at) ? 0 : 1;
+    const bPin = (b.funnel_stage === "convert" && b.due_at) ? 0 : 1;
+    if (aPin !== bPin) return aPin - bPin;
+    return (b.priority_score || 0) - (a.priority_score || 0);
+  });
+  el.innerHTML = jobs.map(j => renderJobCard(j)).join("");
+}
+
+function renderJobCard(j) {
+  const stage = j.funnel_stage || "create";
+  const persona = j.input_payload?.persona_tier || j.persona_tier || "";
+  const personaCls = personaClass(persona);
+  const pts = j.expected_value ? `+${j.expected_value.toFixed(2)} pts` : "";
+  const ptsClass = j.expected_value >= 1 ? "high" : "";
+  const isStrategic = j.policy_flags && j.policy_flags.strategic;
+  const sla = (stage === "convert" && j.due_at) ? formatSLA(j.due_at) : "";
+  const account = j.account_ref || "";
+  const contact = j.contact_ref || "";
+
+  let actions = "";
+  if (isStrategic) {
+    actions = `<span class="manual-pill">MANUAL ONLY</span>`;
+  } else {
+    actions = `<button class="btn-ghost" onclick="jobAction('skip','${j.id}')">Skip</button><button class="btn-ghost" onclick="jobAction('snooze','${j.id}')">Snooze</button>`;
+  }
+
+  return `
+    <div class="job-card${isStrategic ? ' style="border-color:var(--hold)"' : ''}">
+      <div class="stage-bar ${stage}"></div>
+      <span class="stage-badge ${stage}">${stage}</span>
+      <span class="job-type">${escHtml(j.job_type)}</span>
+      <span class="job-account">${escHtml(account)}${contact ? " — " + escHtml(contact) : ""}</span>
+      <span class="persona-pill ${personaCls}">${formatPersona(persona)}</span>
+      ${sla ? `<span class="sla-badge">SLA ${sla}</span>` : ""}
+      <span class="job-points ${ptsClass}">${pts}</span>
+      <span class="job-actions">${actions}</span>
+    </div>`;
+}
+
+function personaClass(p) {
+  if (!p) return "";
+  if (p.includes("c_suite") || p.includes("C-SUITE")) return "c-suite";
+  if (p.includes("vp")) return "vp";
+  if (p.includes("director")) return "director";
+  if (p.includes("manager")) return "manager";
+  return "ic";
+}
+
+function formatPersona(p) {
+  if (!p) return "";
+  const map = { global_c_suite: "C-SUITE", vp_level: "VP", director: "DIR", manager: "MGR", ic: "IC" };
+  const label = map[p] || p.toUpperCase();
+  if (p === "ic") return label + " \u26a0 low-value";
+  return label;
+}
+
+function formatSLA(dueAt) {
+  const diff = new Date(dueAt) - new Date();
+  if (diff <= 0) return "OVERDUE";
+  const h = Math.floor(diff / 3600000);
+  const m = Math.floor((diff % 3600000) / 60000);
+  return `${h}h ${m}m`;
+}
+
+function updatePointsChip(d) {
+  const pace = d.pace || App.data.pace || {};
+  const credited = pace.credited ?? 0;
+  const pending = pace.pending ?? 0;
+  const target = pace.target ?? 35;
+  document.getElementById("points-chip").textContent = `\u25b2 ${credited} credited \u00b7 ${pending} pending / ${target}`;
+}
+
+async function jobAction(action, id) {
+  if (action === "skip") {
+    await fetchJSON(`/api/jobs/${id}/reject`, { method: "POST", body: JSON.stringify({ decided_by: "user", rejection_reason: "skipped" }) });
+  }
+  showToast(`Job ${action}ed`);
+  await loadToday();
+}
+
+/* ── Queue Tab ── */
+let queueItems = [];
+let queueSelectedIdx = 0;
+
+async function loadQueue() {
+  const d = await fetchJSON("/api/review-queue");
+  if (!d) return;
+  App.data.queue = d;
+  queueItems = d.items || [];
+  renderQueueSidebar(d.groups || []);
+  if (queueItems.length > 0) { queueSelectedIdx = 0; renderQueueItem(queueItems[0]); }
+  else { document.getElementById("queue-main").innerHTML = '<div class="empty-state">Queue empty.</div>'; }
+}
+
+function renderQueueSidebar(groups) {
+  const el = document.getElementById("queue-sidebar");
+  if (!groups.length && queueItems.length) {
+    // Fallback: group by job_type
+    const gmap = {};
+    queueItems.forEach(it => {
+      const k = it.job_type || "other";
+      if (!gmap[k]) gmap[k] = { name: k, count: 0, has_sla: false };
+      gmap[k].count++;
+      if (it.due_at) gmap[k].has_sla = true;
+    });
+    groups = Object.values(gmap);
+    // Speed-to-book first
+    groups.sort((a, b) => {
+      if (a.name === "book_response") return -1;
+      if (b.name === "book_response") return 1;
+      return 0;
+    });
+  }
+  el.innerHTML = groups.map((g, i) => `
+    <div class="group-item${i === 0 ? " active" : ""}" data-group="${escHtml(g.name)}">
+      ${g.has_sla ? '<span class="sla-dot"></span>' : ""}
+      <span>${escHtml(g.name)}</span>
+      <span class="group-count">${g.count}</span>
+    </div>
+  `).join("");
+  el.querySelectorAll(".group-item").forEach(gi => {
+    gi.addEventListener("click", () => {
+      el.querySelectorAll(".group-item").forEach(x => x.classList.remove("active"));
+      gi.classList.add("active");
+      const name = gi.dataset.group;
+      const filtered = queueItems.filter(it => (it.job_type || "other") === name);
+      if (filtered.length) { queueSelectedIdx = queueItems.indexOf(filtered[0]); renderQueueItem(filtered[0]); }
+    });
+  });
+}
+
+function renderQueueItem(item) {
+  const el = document.getElementById("queue-main");
+  if (!item) { el.innerHTML = '<div class="empty-state">No items.</div>'; return; }
+  const persona = item.input_payload?.persona_tier || "";
+  const personaCls = personaClass(persona);
+  const trigger = item.trigger ? `${item.trigger.kind || ""}: ${item.trigger.ref || ""}` : "";
+  const ev = item.expected_value ? `EV +${item.expected_value.toFixed(2)} pts` : "";
+  const output = item.output || {};
+  const variants = output.email_variants || (output.reply_in_thread ? [{ body: output.reply_in_thread, subject: output.subject || "" }] : []);
+  const sequence = output.recovery_sequence || output.touches || [];
+  const policyFlags = item.policy_flags ? Object.values(item.policy_flags).filter(v => typeof v === "string") : [];
+
+  let variantHtml = "";
+  if (variants.length > 1) {
+    variantHtml = `<div class="variant-tabs">${variants.map((v, i) => `<button class="vt-btn${i === 0 ? " active" : ""}" data-vi="${i}">${String.fromCharCode(65 + i)}</button>`).join("")}</div>`;
+    variantHtml += variants.map((v, i) => `
+      <div class="variant-pane" data-vi="${i}" style="${i > 0 ? "display:none" : ""}">
+        ${v.subject ? `<div class="draft-subject">${escHtml(v.subject)}</div>` : ""}
+        <div class="draft-body">${escHtml(v.body || v.text || "")}</div>
+        ${v.rationale ? `<div class="variant-rationale">${escHtml(v.rationale)}</div>` : ""}
+      </div>
+    `).join("");
+  } else if (variants.length === 1) {
+    const v = variants[0];
+    variantHtml = `
+      ${v.subject ? `<div class="draft-subject">${escHtml(v.subject)}</div>` : ""}
+      <div class="draft-body">${escHtml(v.body || v.text || "")}</div>
+      ${v.rationale ? `<div class="variant-rationale">${escHtml(v.rationale)}</div>` : ""}
+    `;
+  }
+
+  let sequenceHtml = "";
+  if (sequence.length) {
+    sequenceHtml = `<div class="recovery-sequence">${sequence.map(s => `
+      <div class="recovery-touch">
+        <div class="day-label">${escHtml(s.day_label || s.label || "")}</div>
+        <div>${escHtml(s.body || s.text || "")}</div>
+      </div>
+    `).join("")}</div>`;
+  }
+
+  let policyHtml = "";
+  if (policyFlags.length) {
+    policyHtml = policyFlags.map(f => `<div class="policy-banner">${escHtml(f)}</div>`).join("");
+  }
+
+  el.innerHTML = `
+    <div class="queue-header">
+      <span class="job-type">${escHtml(item.account_ref || "")}</span>
+      <span class="job-account">${escHtml(item.contact_ref || "")}</span>
+      <span class="persona-pill ${personaCls}">${formatPersona(persona)}</span>
+      <span class="trigger">${escHtml(trigger)}</span>
+      <span class="ev">${ev}</span>
+    </div>
+    <div class="draft-pane">
+      ${variantHtml}
+      ${sequenceHtml}
+    </div>
+    ${policyHtml}
+    <div class="action-bar">
+      <button class="btn-approve" onclick="queueApprove()">Approve<span class="kbd">A</span></button>
+      <button class="btn-reject" onclick="queueRejectStart()">Reject<span class="kbd">R</span></button>
+      <input class="reject-input" id="reject-reason" placeholder="Reason (Enter to submit)" onkeydown="if(event.key==='Enter')queueRejectSubmit()">
+      <button class="btn-skip" onclick="queueSkip()">Skip<span class="kbd">S</span></button>
+    </div>
+  `;
+
+  // Variant tab switching
+  el.querySelectorAll(".vt-btn").forEach(btn => {
+    btn.addEventListener("click", () => {
+      const vi = btn.dataset.vi;
+      el.querySelectorAll(".vt-btn").forEach(b => b.classList.toggle("active", b.dataset.vi === vi));
+      el.querySelectorAll(".variant-pane").forEach(p => p.style.display = p.dataset.vi === vi ? "" : "none");
+    });
+  });
+}
+
+async function queueApprove() {
+  const item = queueItems[queueSelectedIdx];
+  if (!item) return;
+  await fetchJSON(`/api/jobs/${item.id}/approve`, { method: "POST", body: JSON.stringify({ decided_by: "user" }) });
+  showToast("Approved \u2192 draft created");
+  queueItems.splice(queueSelectedIdx, 1);
+  if (queueSelectedIdx >= queueItems.length) queueSelectedIdx = Math.max(0, queueItems.length - 1);
+  if (queueItems.length) renderQueueItem(queueItems[queueSelectedIdx]);
+  else { document.getElementById("queue-main").innerHTML = '<div class="empty-state">Queue empty.</div>'; }
+}
+
+function queueRejectStart() {
+  document.getElementById("reject-reason").classList.add("show");
+  document.getElementById("reject-reason").focus();
+}
+
+async function queueRejectSubmit() {
+  const item = queueItems[queueSelectedIdx];
+  if (!item) return;
+  const reason = document.getElementById("reject-reason").value;
+  await fetchJSON(`/api/jobs/${item.id}/reject`, { method: "POST", body: JSON.stringify({ decided_by: "user", rejection_reason: reason }) });
+  showToast("Rejected");
+  document.getElementById("reject-reason").classList.remove("show");
+  document.getElementById("reject-reason").value = "";
+  queueItems.splice(queueSelectedIdx, 1);
+  if (queueSelectedIdx >= queueItems.length) queueSelectedIdx = Math.max(0, queueItems.length - 1);
+  if (queueItems.length) renderQueueItem(queueItems[queueSelectedIdx]);
+  else { document.getElementById("queue-main").innerHTML = '<div class="empty-state">Queue empty.</div>'; }
+}
+
+async function queueSkip() {
+  const item = queueItems[queueSelectedIdx];
+  if (!item) return;
+  showToast("Skipped");
+  queueItems.splice(queueSelectedIdx, 1);
+  if (queueSelectedIdx >= queueItems.length) queueSelectedIdx = Math.max(0, queueItems.length - 1);
+  if (queueItems.length) renderQueueItem(queueItems[queueSelectedIdx]);
+  else { document.getElementById("queue-main").innerHTML = '<div class="empty-state">Queue empty.</div>'; }
+}
+
+/* Keyboard shortcuts for Queue */
+document.addEventListener("keydown", e => {
+  if (App.tab !== "queue") return;
+  if (e.target.tagName === "INPUT" || e.target.tagName === "TEXTAREA") return;
+  if (e.key === "a" || e.key === "A") queueApprove();
+  else if (e.key === "r" || e.key === "R") queueRejectStart();
+  else if (e.key === "s" || e.key === "S") queueSkip();
+});
+
+/* ── Pace Tab ── */
+async function loadPace() {
+  const d = await fetchJSON("/api/pace");
+  if (!d) return;
+  App.data.pace = d;
+  renderPaceGoal(d.goal || {});
+  renderPaceFunnel(d.funnel || {});
+  renderPaceRates(d.rates || []);
+  renderPaceEarnings(d.earnings || {}, d.promotion || {});
+  updatePointsChip({ pace: d.goal || {} });
+}
+
+function renderPaceGoal(g) {
+  const credited = g.credited ?? 0;
+  const pending = g.pending ?? 0;
+  const target = g.target ?? 35;
+  const pctElapsed = g.pct_period_elapsed ?? 0;
+  const pace = g.pace_gap ?? 0;
+  const paceClass = pace < 0 ? "pace-negative" : "pace-positive";
+  const paceSign = pace >= 0 ? "+" : "";
+  const creditedPct = Math.min((credited / target) * 100, 100);
+  const pendingPct = Math.min(((credited + pending) / target) * 100, 100);
+  document.getElementById("pace-goal").innerHTML = `
+    <div class="pace-heading">GOAL</div>
+    <div class="goal-bar-wrap">
+      <div class="goal-bar-credited" style="width:${creditedPct}%"></div>
+      <div class="goal-bar-pending" style="left:${creditedPct}%;width:${pendingPct - creditedPct}%"></div>
+      <div class="goal-target-tick" style="left:100%"></div>
+    </div>
+    <div class="goal-caption">${credited} credited + ${pending} pending of ${target} pts \u00b7 ${Math.round(pctElapsed * 100)}% of month elapsed \u00b7 <span class="${paceClass}">pace ${paceSign}${Math.round(pace)}%</span></div>
+  `;
+}
+
+function renderPaceFunnel(f) {
+  const cols = ["touches", "replies", "positive", "booked", "held", "ad_accepted"];
+  const labels = ["Touches", "Replies", "Positive", "Booked", "Held", "AD-accepted"];
+  document.getElementById("pace-funnel").innerHTML = `
+    <div class="pace-heading">FUNNEL</div>
+    <div class="funnel-cols">
+      ${cols.map((c, i) => {
+        const val = f[c] ?? { actual: 0, expected: 0 };
+        const actual = typeof val === "object" ? (val.actual ?? 0) : val;
+        const expected = typeof val === "object" ? (val.expected ?? 0) : 0;
+        const isRed = expected > 0 && actual < expected * 0.85;
+        return `<div class="funnel-col${isRed ? " red" : ""}"><div class="num">${actual}</div><div class="lbl">${labels[i]}</div><div class="exp">vs exp ${expected}</div></div>`;
+      }).join("")}
+    </div>
+  `;
+}
+
+function renderPaceRates(rates) {
+  document.getElementById("pace-rates").innerHTML = `
+    <div class="pace-heading">RATES</div>
+    <div class="rates-grid">
+      ${rates.map(r => {
+        const drift = r.drift ?? 0;
+        const driftCls = Math.abs(drift) > 10 ? "bad" : "ok";
+        const driftSign = drift >= 0 ? "+" : "";
+        return `<div class="rate-tile">
+          <div class="name">${escHtml(r.metric || r.name || "")}</div>
+          <div class="pct">${(r.blended_rate ?? r.rate ?? 0).toFixed(1)}%</div>
+          <div class="meta">
+            <span>n=${r.n_sample ?? r.n ?? 0}</span>
+            <span class="confidence-pill ${r.confidence || "low"}">${r.confidence || "low"}</span>
+            <span class="drift-arrow ${driftCls}">${driftSign}${drift.toFixed(1)}</span>
+          </div>
+        </div>`;
+      }).join("")}
+    </div>
+  `;
+}
+
+function renderPaceEarnings(e, p) {
+  const projected = e.projected ?? 0;
+  const base = e.base ?? 0;
+  const accelerator = e.accelerator ?? 0;
+  const spiff = e.spiff ?? 0;
+  const annualized = e.annualized ?? 0;
+  const targetAnnual = e.target_annual ?? 135000;
+  const annPct = Math.min((annualized / targetAnnual) * 100, 100);
+
+  const streak = p.streak || [];
+  const sourcedS2 = p.sourced_s2 ?? "0 of 3";
+  const monthsAbove = p.months_above_40 ?? "0 consecutive";
+  const status = p.status || "";
+
+  document.getElementById("pace-earnings").innerHTML = `
+    <div class="pace-heading">EARNINGS & PROMOTION</div>
+    <div class="earnings-row">
+      <div class="earnings-left">
+        <div class="earnings-big">This month $${projected.toLocaleString()} projected</div>
+        <div class="earnings-breakdown">base $${base.toLocaleString()} + accelerator $${accelerator.toLocaleString()} + SPIFF $${spiff.toLocaleString()}</div>
+        <div class="bullet-bar-wrap">
+          <div class="bullet-bar-fill" style="width:${annPct}%"></div>
+          <div class="bullet-bar-target" style="left:100%"></div>
+        </div>
+        <div class="goal-caption">annualized $${annualized.toLocaleString()} vs $${targetAnnual.toLocaleString()}</div>
+      </div>
+      <div class="earnings-right">
+        <div class="promo-dots">${streak.map(s => `<div class="promo-dot${s ? " filled" : ""}"></div>`).join("")}</div>
+        <div class="promo-stat">Sourced S2: ${escHtml(String(sourcedS2))}</div>
+        <div class="promo-stat">Months >40 pts: ${escHtml(String(monthsAbove))}</div>
+        <div class="promo-status">${escHtml(status)}</div>
+      </div>
+    </div>
+  `;
+}
+
+/* ── Simulate Tab ── */
+function initSimulate() {
+  const grid = document.getElementById("sim-grid");
+  grid.innerHTML = `
+    <button class="guided-btn" onclick="runGuidedDemo()">Guided Demo — run full happy-path sequence</button>
+    <div class="sim-btn" onclick="simAction('/api/sim/positive-reply')">
+      <span class="sim-title">Positive reply</span>
+      <span class="sim-caption">watch a book_response job appear in Queue within seconds</span>
+    </div>
+    <div class="sim-btn" id="sim-meeting-booked">
+      <span class="sim-title">Meeting booked (VP, 3 days out)</span>
+      <span class="sim-caption">creates meeting_booked event + show-rate machine</span>
+      <div class="sim-inline">
+        <select id="sim-persona">
+          <option value="vp_level">VP</option>
+          <option value="director">Director</option>
+          <option value="manager">Manager</option>
+          <option value="global_c_suite">C-Suite</option>
+        </select>
+        <input id="sim-days" type="number" value="3" min="1" max="14">
+        <span style="font-size:11px;color:var(--muted)">days out</span>
+      </div>
+    </div>
+    <div class="sim-btn" onclick="simAction('/api/sim/invite-accepted')">
+      <span class="sim-title">Invite accepted</span>
+      <span class="sim-caption">most recent booked meeting transitions</span>
+    </div>
+    <div class="sim-btn" onclick="simAction('/api/sim/advance-clock',{hours:24})">
+      <span class="sim-title">Advance clock +24h</span>
+      <span class="sim-caption">fires confirmation timers</span>
+    </div>
+    <div class="sim-btn" onclick="simAction('/api/sim/meeting-held')">
+      <span class="sim-title">Meeting held</span>
+      <span class="sim-caption">most recent confirmed meeting</span>
+    </div>
+    <div class="sim-btn" onclick="simAction('/api/sim/no-show')">
+      <span class="sim-title">No-show</span>
+      <span class="sim-caption">watch recovery sequence appear</span>
+    </div>
+    <div class="sim-btn" onclick="simAction('/api/sim/ad-accepts')">
+      <span class="sim-title">AD accepts</span>
+      <span class="sim-caption">watch Pace: pending to credited</span>
+    </div>
+    <div class="sim-btn" onclick="simAction('/api/sim/new-signal')">
+      <span class="sim-title">New signal</span>
+      <span class="sim-caption">watch research brief + outreach jobs appear in Today</span>
+    </div>
+    <div class="sim-btn reset" onclick="simReset()">
+      <span class="sim-title">Reset fixtures</span>
+      <span class="sim-caption">restore DB to pristine state (confirm required)</span>
+    </div>
+  `;
+  // Meeting booked button
+  document.getElementById("sim-meeting-booked").addEventListener("click", e => {
+    if (e.target.tagName === "SELECT" || e.target.tagName === "INPUT") return;
+    const persona = document.getElementById("sim-persona").value;
+    const days = parseInt(document.getElementById("sim-days").value) || 3;
+    simAction("/api/sim/meeting-booked", { days_out: days, persona_tier: persona });
+  });
+}
+
+async function simAction(url, body = null) {
+  const opts = { method: "POST" };
+  if (body) opts.body = JSON.stringify(body);
+  const d = await fetchJSON(url, opts);
+  if (d) {
+    const evts = d.events_created || [];
+    const jobs = d.jobs_created || [];
+    showToast(`${evts.length ? evts[0] : "done"} \u2192 ${jobs.length} job(s) created`);
+  }
+  flashTicker();
+  await refreshAll();
+}
+
+async function simReset() {
+  if (!confirm("Reset all fixture data to pristine state?")) return;
+  await simAction("/api/sim/reset");
+}
+
+async function runGuidedDemo() {
+  const steps = [
+    { fn: () => simAction("/api/sim/positive-reply"), tab: "today", delay: 2000 },
+    { fn: () => switchTab("queue"), tab: null, delay: 2000 },
+    { fn: () => showToast("Hint: press A to approve the book_response"), tab: null, delay: 2000 },
+    { fn: () => simAction("/api/sim/meeting-booked", { days_out: 3, persona_tier: "vp_level" }), tab: "today", delay: 2000 },
+    { fn: () => simAction("/api/sim/advance-clock", { hours: 24 }), tab: null, delay: 2000 },
+    { fn: () => switchTab("queue"), tab: null, delay: 2000 },
+    { fn: () => showToast("Hint: approve confirmations"), tab: null, delay: 2000 },
+    { fn: () => simAction("/api/sim/meeting-held"), tab: null, delay: 2000 },
+    { fn: () => simAction("/api/sim/ad-accepts"), tab: null, delay: 2000 },
+    { fn: () => switchTab("pace"), tab: null, delay: 2000 },
+  ];
+  for (const step of steps) {
+    if (step.tab) switchTab(step.tab);
+    await step.fn();
+    await new Promise(r => setTimeout(r, step.delay));
+  }
+  showToast("Guided demo complete");
+}
+
+/* ── Utilities ── */
+function escHtml(s) { const d = document.createElement("div"); d.textContent = s; return d.innerHTML; }
+function truncate(s, n) { return s.length > n ? s.slice(0, n) + "\u2026" : s; }
+
+/* ── Init ── */
+document.querySelectorAll(".topbar-tabs button").forEach(btn => {
+  btn.addEventListener("click", () => switchTab(btn.dataset.tab));
+});
+document.getElementById("refresh-btn").addEventListener("click", refreshAll);
+
+initSimulate();
+refreshAll();
+</script>
+</body>
+</html>
