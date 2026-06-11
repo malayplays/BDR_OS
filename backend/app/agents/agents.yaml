@@ -19,3 +19,11 @@ agents:
     model: claude-sonnet-4-20250514
     max_tokens: 2048
     temperature: 0.4
+  inbox_triage:
+    model: claude-sonnet-4-20250514
+    max_tokens: 512
+    temperature: 0.1
+  book_response:
+    model: claude-sonnet-4-20250514
+    max_tokens: 512
+    temperature: 0.3
