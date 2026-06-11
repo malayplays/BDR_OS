@@ -289,7 +289,7 @@ class TestPositiveChainsBookResponse:
                     )
                 ]
 
-        results = asyncio.get_event_loop().run_until_complete(
+        results = asyncio.run(
             poll_and_triage(
                 FakeEmailAdapter(),
                 since=datetime(2026, 6, 10, 0, 0, 0),
@@ -369,7 +369,7 @@ class TestUnsubscribeKillsEverything:
                     )
                 ]
 
-        results = asyncio.get_event_loop().run_until_complete(
+        results = asyncio.run(
             poll_and_triage(
                 FakeEmailAdapter(),
                 since=datetime(2026, 6, 10, 0, 0, 0),
@@ -414,7 +414,7 @@ class TestUnsubscribeKillsEverything:
                     )
                 ]
 
-        results = asyncio.get_event_loop().run_until_complete(
+        results = asyncio.run(
             poll_and_triage(
                 FakeEmailAdapter(),
                 since=datetime(2026, 6, 11, 0, 0, 0),
@@ -495,7 +495,7 @@ class TestOOOPausesNotKills:
                     )
                 ]
 
-        asyncio.get_event_loop().run_until_complete(
+        asyncio.run(
             poll_and_triage(
                 FakeEmailAdapter(),
                 since=datetime(2026, 6, 10, 0, 0, 0),
@@ -638,7 +638,7 @@ class TestMoreInfoIsBookingOpportunity:
                     )
                 ]
 
-        asyncio.get_event_loop().run_until_complete(
+        asyncio.run(
             poll_and_triage(
                 FakeEmailAdapter(),
                 since=datetime(2026, 6, 10, 0, 0, 0),
