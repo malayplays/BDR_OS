@@ -22,3 +22,10 @@ auto_approve_whitelist:
   - call_prep
   - pipeline_hygiene_autofix
   - reporting_personal_recap
+
+# Data-hygiene auto-fix whitelist — only these actions can run without approval.
+# Anything customer-adjacent MUST go through the normal gated flow.
+hygiene_autofix_whitelist:
+  - close_stale_bdr_task       # close BDR-OS-created tasks that are stale
+  - repair_eventlog_job_link   # fix missing EventLog↔Job attribution
+  - mark_dead_sequence         # mark sequences with no reply after threshold
