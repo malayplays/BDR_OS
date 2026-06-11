@@ -1,0 +1,21 @@
+# Estimated minutes per job_type — used by the Ranker
+# priority_score = expected_value / estimated_minutes × urgency_boost
+# Source: rough calibration; refine from actuals after M2.
+
+research_brief: 15
+outreach_draft: 10
+reply_triage: 3
+book_response: 5
+confirmation_24h: 3
+confirmation_am: 2
+reconfirm: 5
+pull_in_offer: 5
+reschedule: 5
+no_show_recovery: 8
+call_prep: 10
+crm_scribe: 12
+pipeline_hygiene_autofix: 2
+reporting_personal_recap: 15
+reporting_manager_update: 20
+dormancy_requalify: 10
+crm_note_log: 3
