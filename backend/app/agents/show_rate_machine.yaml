@@ -1,0 +1,118 @@
+# Show-Rate Machine — table-driven transition definitions
+# Each entry: from_state -> to_state with trigger, emitted job, and timer info.
+# All customer-facing jobs require approval (approval_required: true).
+
+transitions:
+  # Happy path
+  - from: BOOKED
+    to: INVITE_SENT
+    trigger: booking_detected
+    job_type: send_invite
+    job_description: "Calendar invite with value-framed agenda and colleague invitation"
+    customer_facing: true
+    approval_required: true
+
+  - from: INVITE_SENT
+    to: ACCEPTED
+    trigger: invite_accepted
+    job_type: null
+    customer_facing: false
+    approval_required: false
+
+  - from: ACCEPTED
+    to: CONFIRMED_24H
+    trigger: timer_t_minus_24h
+    job_type: confirm_24h
+    job_description: "Content-bearing 24h confirmation referencing originating signal"
+    customer_facing: true
+    approval_required: true
+
+  - from: CONFIRMED_24H
+    to: CONFIRMED_AM
+    trigger: timer_morning_of
+    job_type: confirm_am
+    job_description: "Morning-of proof point message"
+    customer_facing: true
+    approval_required: true
+
+  - from: CONFIRMED_AM
+    to: HELD
+    trigger: attendance_confirmed
+    job_type: null
+    customer_facing: false
+    approval_required: false
+
+  - from: CONFIRMED_AM
+    to: NO_SHOW
+    trigger: no_attendance_10min
+    job_type: no_show_recovery
+    job_description: "No-show detected — hand off to recovery agent"
+    customer_facing: false
+    approval_required: false
+
+  # Risk sub-transitions
+  - from: INVITE_SENT
+    to: INVITE_SENT
+    trigger: invite_not_accepted_24h
+    job_type: reconfirm
+    job_description: "Reconfirm draft — making sure this still works, or offer two other times"
+    customer_facing: true
+    approval_required: true
+    max_fires: 1
+
+  - from: BOOKED
+    to: RESCHEDULING
+    trigger: ooo_autoreply
+    job_type: reschedule
+    job_description: "OOO detected — reschedule with 2 alternative slots"
+    customer_facing: true
+    approval_required: true
+
+  - from: INVITE_SENT
+    to: RESCHEDULING
+    trigger: ooo_autoreply
+    job_type: reschedule
+    job_description: "OOO detected — reschedule with 2 alternative slots"
+    customer_facing: true
+    approval_required: true
+
+  - from: ACCEPTED
+    to: RESCHEDULING
+    trigger: ooo_autoreply
+    job_type: reschedule
+    job_description: "OOO detected — reschedule with 2 alternative slots"
+    customer_facing: true
+    approval_required: true
+
+  - from: CONFIRMED_24H
+    to: RESCHEDULING
+    trigger: ooo_autoreply
+    job_type: reschedule
+    job_description: "OOO detected — reschedule with 2 alternative slots"
+    customer_facing: true
+    approval_required: true
+
+  - from: CONFIRMED_AM
+    to: RESCHEDULING
+    trigger: ooo_autoreply
+    job_type: reschedule
+    job_description: "OOO detected — reschedule with 2 alternative slots"
+    customer_facing: true
+    approval_required: true
+
+  - from: RESCHEDULING
+    to: BOOKED
+    trigger: rebooked
+    job_type: null
+    customer_facing: false
+    approval_required: false
+
+  # Slot science — pull-in offer (>4 days out)
+  - from: BOOKED
+    to: BOOKED
+    trigger: pull_in_check
+    job_type: pull_in_offer
+    job_description: "A slot opened sooner — offer to pull in the meeting"
+    customer_facing: true
+    approval_required: true
+    min_days_out: 5
