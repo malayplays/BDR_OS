@@ -1,3 +1,5 @@
+import os
+
 from dotenv import load_dotenv
 
 load_dotenv()
@@ -11,6 +13,12 @@ from app.models import Base  # noqa: E402
 app = FastAPI(title="BDR OS", version="0.1.0")
 
 app.include_router(router)
+
+# DEBUG ONLY — mount simulation endpoints when DEBUG_DASHBOARD=true
+if os.getenv("DEBUG_DASHBOARD", "").lower() == "true":
+    from app.api.debug_sim import router as debug_sim_router  # noqa: E402
+
+    app.include_router(debug_sim_router)
 
 
 @app.on_event("startup")
