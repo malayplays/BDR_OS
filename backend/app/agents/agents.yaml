@@ -15,3 +15,7 @@ agents:
     model: claude-sonnet-4-20250514
     max_tokens: 2048
     temperature: 0.2
+  copy:
+    model: claude-sonnet-4-20250514
+    max_tokens: 2048
+    temperature: 0.4
