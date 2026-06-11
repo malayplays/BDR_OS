@@ -6,5 +6,6 @@ from app.models.goal import Goal
 from app.models.job import Job
 from app.models.meeting_state import MeetingRecord
 from app.models.plan import Plan
+from app.models.report import Report
 
-__all__ = ["Base", "Goal", "EventLog", "ConversionRates", "FunnelState", "Plan", "Job", "MeetingRecord"]
+__all__ = ["Base", "Goal", "EventLog", "ConversionRates", "FunnelState", "Plan", "Job", "MeetingRecord", "Report"]
